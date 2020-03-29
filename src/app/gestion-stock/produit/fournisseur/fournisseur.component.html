@@ -1,1 +1,57 @@
-<p>fournisseur works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+<div class="card">
+  <div class="card-header">Fournisseur</div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+    <div class="form-group">
+      <label>reference</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.reference">
+    </div>
+      </div>
+
+      <div class="col-md-8">
+    <div class="form-group">
+      <label>nom</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.nom">
+    </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>mail</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.mail">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+    <div class="form-group">
+      <label>telephone</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.telephone">
+    </div>
+        </div>
+
+        <div class="col-md-6">
+    <div class="form-group">
+      <label>ville</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.ville">
+    </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label>adresse</label>
+      <input type="text" class="form-control" [(ngModel)]="fournisseur.adresse">
+    </div>
+
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-outline-info btn-block" (click)="save()" [disabled]="!validateFournisseur()">SAVE</button>
+  </div>
+</div>
+    </div>
+  </div>
+</div>

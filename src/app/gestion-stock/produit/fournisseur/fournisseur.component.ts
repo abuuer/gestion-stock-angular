@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ProduitService} from "../../../controller/service/produit.service";
 import {Fournisseur} from "../../../controller/model/produit/fournisseur.model";
 import {FournisseurService} from "../../../controller/service/fournisseur.service";
 

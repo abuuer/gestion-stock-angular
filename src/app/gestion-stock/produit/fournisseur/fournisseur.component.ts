@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProduitService} from "../../../controller/service/produit.service";
 import {Fournisseur} from "../../../controller/model/produit/fournisseur.model";
+import {FournisseurService} from "../../../controller/service/fournisseur.service";
 
 @Component({
   selector: 'app-fournisseur',
@@ -9,28 +10,28 @@ import {Fournisseur} from "../../../controller/model/produit/fournisseur.model";
 })
 export class FournisseurComponent implements OnInit {
 
-  constructor(private produitService: ProduitService) { }
+  constructor(private fournisseurService: FournisseurService) { }
 
   public deleteByReference(fournisseur: Fournisseur) {
-    this.produitService.deleteByReference(fournisseur);
+    this.fournisseurService.deleteByReference(fournisseur);
   }
 
   ngOnInit(): void {
-    this.produitService.findAll();
+    this.fournisseurService.findAll();
   }
   get fournisseur(): Fournisseur {
-    return this.produitService.fournisseur;
+    return this.fournisseurService.fournisseur;
   }
   public save() {
-    return this.produitService.save();
+    return this.fournisseurService.save();
   }
 
-  public validateFournisseur(): boolean{
-    return this.produitService.validateFournisseur();
+  public validateFournisseur(): boolean {
+    return this.fournisseurService.validateFournisseur();
   }
 
   get fournisseurs(): Array<Fournisseur> {
-    return this.produitService.fournisseurs;
+    return this.fournisseurService.fournisseurs;
   }
 
 

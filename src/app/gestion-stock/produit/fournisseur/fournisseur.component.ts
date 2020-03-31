@@ -11,7 +11,12 @@ export class FournisseurComponent implements OnInit {
 
   constructor(private produitService: ProduitService) { }
 
+  public deleteByReference(fournisseur: Fournisseur) {
+    this.produitService.deleteByReference(fournisseur);
+  }
+
   ngOnInit(): void {
+    this.produitService.findAll();
   }
   get fournisseur(): Fournisseur {
     return this.produitService.fournisseur;
@@ -23,4 +28,11 @@ export class FournisseurComponent implements OnInit {
   public validateFournisseur(): boolean{
     return this.produitService.validateFournisseur();
   }
+
+  get fournisseurs(): Array<Fournisseur> {
+    return this.produitService.fournisseurs;
+  }
+
+
+
 }

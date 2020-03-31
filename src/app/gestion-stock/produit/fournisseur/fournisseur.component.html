@@ -1,57 +1,108 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-<div class="card">
-  <div class="card-header">Fournisseur</div>
+    <div class="col-md-8">
+<div  class="card">
+  <div id="card-header1" class="card-header">Fournisseur</div>
 
-  <div class="card-body">
+  <div id="card-body1" class="card-body">
     <div class="row">
       <div class="col-md-4">
     <div class="form-group">
-      <label>reference</label>
+      <label>Reference</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.reference">
     </div>
       </div>
 
       <div class="col-md-8">
     <div class="form-group">
-      <label>nom</label>
+      <label>Nom</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.nom">
     </div>
       </div>
     </div>
 
+
+    <div class="col-md-10">
     <div class="form-group">
-      <label>mail</label>
+      <label>E-Mail</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.mail">
     </div>
+    </div>
+
 
     <div class="row">
         <div class="col-md-6">
     <div class="form-group">
-      <label>telephone</label>
+      <label>Telephone</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.telephone">
     </div>
         </div>
 
         <div class="col-md-6">
     <div class="form-group">
-      <label>ville</label>
+      <label>Ville</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.ville">
     </div>
         </div>
     </div>
 
+    <div class="col-md-10">
+      <div class="form-group">
     <div class="form-group">
-      <label>adresse</label>
+      <label>Adresse</label>
       <input type="text" class="form-control" [(ngModel)]="fournisseur.adresse">
+    </div>
+      </div>
     </div>
 
   </div>
-  <div class="card-footer">
-    <button class="btn btn-outline-info btn-block" (click)="save()" [disabled]="!validateFournisseur()">SAVE</button>
+  <div id="card-footer1" class="card-footer">
+    <button class="btn btn-outline-dark btn-block" (click)="save()" [disabled]="!validateFournisseur()">SAVE</button>
   </div>
 </div>
     </div>
   </div>
+    </div>
+
+<div class="container">
+  <div class="row">
+    <div id="yes" class="col-md-4">
+      <div id="card1" class="card">
+        <div class="card-body">
+          Nombre de fournisseurs:{{this.fournisseurs.length}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<br>
+<br>
+<br>
+<div  class="card">
+  <div id="card-header2" class="card-header">Liste des fournisseurs</div>
+  <div id="card-body2" class="card-body">
+    <table class="table">
+      <thead>
+      <th>Reference</th>
+      <th>Nom</th>
+      <th>E-Mail</th>
+      <th>Telephone</th>
+      <th>Ville</th>
+      <th>Adresse</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of fournisseurs">
+        <td>{{c.reference}}</td>
+        <td>{{c.nom}}</td>
+        <td>{{c.mail}}</td>
+        <td>{{c.telephone}}</td>
+        <td>{{c.ville}}</td>
+        <td>{{c.adresse}}</td>
+        <td><button class="btn btn-sm fa fa-trash" (click)="deleteByReference(c)"></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

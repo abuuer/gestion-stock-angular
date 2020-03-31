@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 export class ProduitService {
    private _fournisseur: Fournisseur;
    private _fournisseurs: Array<Fournisseur>;
+
   constructor(private http: HttpClient) { }
   get fournisseur(): Fournisseur {
     if (this._fournisseur == null) {
@@ -31,7 +32,9 @@ export class ProduitService {
   set fournisseurs(value: Array<Fournisseur>) {
     this._fournisseurs = value;
   }
-   private clone(fournisseur: Fournisseur): Fournisseur {
+
+
+  private clone(fournisseur: Fournisseur): Fournisseur {
      const clone = new Fournisseur();
      clone.reference = fournisseur.reference;
      clone.nom = fournisseur.nom;
@@ -41,16 +44,42 @@ export class ProduitService {
      clone.adresse = fournisseur.adresse;
      return clone;
    }
+
   public save() {
     this.http.post<number>('http://localhost:8090/Fournisseur-stock/fournisseur/', this.fournisseur).subscribe(
       data => {
             if (data > 0) {
                 this.fournisseurs.push(this.clone(this.fournisseur));
+                this.fournisseur = null;
             }
       }, error =>  {
         console.log('erreur');
       }
 
+    );
+  }
+
+  public findAll() {
+    this.http.get<Array<Fournisseur>>('http://localhost:8090/Fournisseur-stock/fournisseur/').subscribe(
+      data => {
+        this.fournisseurs = data;
+      }
+    );
+  }
+
+  public deleteByReferenceFromView(fournisseur: Fournisseur) {
+    const index = this.fournisseurs.findIndex(c => c.reference === fournisseur.reference);
+    if (index !== -1) {
+      this.fournisseurs.splice(index, 1);
+    }
+  }
+
+  public deleteByReference(fournisseur: Fournisseur) {
+    this.http.delete<number>('http://localhost:8090/Fournisseur-stock/fournisseur/reference/' + fournisseur.reference).subscribe(
+      data => {
+        console.log('mzyan');
+        this.deleteByReferenceFromView(fournisseur);
+      }
     );
   }
 

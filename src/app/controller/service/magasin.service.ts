@@ -15,9 +15,6 @@ export class MagasinService {
   constructor(private http: HttpClient, private entiteAdministrativeService: EntiteAdministrativeService) { }
 
   public save() {
-    console.log(this._magasin);
-    this._magasin.entiteAdministrative = this.entiteAdministrativeService.findByReference(this._magasin.refEntite);
-    console.log(this._magasin);
     this.http.post<number>(this.url, this._magasin).subscribe(
       data => {
         if (data > 0) {
@@ -31,6 +28,35 @@ export class MagasinService {
       }
     );
 
+  }
+  public deleteByReferenceFromView(magasin: Magasin){
+    const index = this._magasins.findIndex(c => c.reference === magasin.reference);
+    if (index !== 1 ) {
+      this._magasins.splice(index, 1);
+    }
+  }
+  public deleteByReference(magasin: Magasin) {
+    console.log('hada howa ref dial lmagasin li dazt bach deleta ' + magasin.reference);
+    this.http.delete(this.url + 'delete/' + magasin.reference).subscribe(
+      data => {
+        if (data > 0) {
+          console.log('success delete magasin');
+          this.deleteByReferenceFromView(magasin);
+        }
+      }, error => {
+        console.log('magasin not deleted');
+      }
+    );
+  }
+  public findAll() {
+    this.http.get<Array<Magasin>>(this.url + 'findAll').subscribe(
+      data => {
+        console.log('success  ALL magasins founded');
+        this.magasins = data ;
+      }, error => {
+        console.log('error mal9Ach les Magasins');
+      }
+    );
   }
   public validateSave(): boolean {
     return this.magasin.reference != null && this.magasin.nom != null && this.magasin.refEntite != null ;

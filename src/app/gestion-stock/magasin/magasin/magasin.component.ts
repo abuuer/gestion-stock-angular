@@ -13,6 +13,7 @@ export class MagasinComponent implements OnInit {
   constructor(private magasinService: MagasinService) { }
 
   ngOnInit(): void {
+    this.magasinService.findAll();
   }
 
   public save() {
@@ -26,5 +27,8 @@ export class MagasinComponent implements OnInit {
   }
   get magasin(): Magasin {
     return this.magasinService.magasin;
+  }
+  public deleteByReference(magasin: Magasin) {
+    this.magasinService.deleteByReference(magasin);
   }
 }

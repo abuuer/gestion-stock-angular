@@ -58,15 +58,16 @@
 </div>
 </div>
 <div class="col-md-8" id="listeMag">
+  <div >
   <h1> Listes des Magasins</h1>
-    <div class="card-body">
-      <table class="table table-dark table-hover table-striped">
-        <thead>
-        <th>reference</th>
-        <th>nom</th>
-        <th>nbrMaxProduit</th>
-        <th>nbrMaxEmploye</th>
-        <th>EntiteAdministratives</th>
+      <table class="table table-dark table-hover table-striped table-bordered">
+        <thead >
+        <th class="col-md-3">reference</th>
+        <th class="col-md-3">nom</th>
+        <th class="col-md-1">nbrMaxProduit</th>
+        <th class="col-md-1">nbrMaxEmploye</th>
+        <th class="col-md-3">Ref de l'entite</th>
+        <th class="col-md-1">Action</th>
         </thead>
         <tbody>
         <tr *ngFor="let c of magasins">
@@ -75,6 +76,7 @@
           <td>{{c.nbrMAxProduit}}</td>
           <td>{{c.nbrMaxEmploye}}</td>
           <td>{{c.refEntite}}</td>
+          <td><button type="button" class="btn btn-sm btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
         </tr>
         </tbody>
       </table>

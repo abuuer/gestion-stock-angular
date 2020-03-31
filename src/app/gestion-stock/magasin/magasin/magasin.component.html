@@ -1,1 +1,84 @@
-<p>magasin works!</p>
+<div class="row">
+<div class="col-md-4" id="CreationMag">
+  <h1 id="titreMag"> Creation Magasins</h1>
+<div class="card">
+
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+        <label class="primaryLab">reference</label>
+        <input type="text" class="form-control" [(ngModel)]="magasin.reference" >
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+        <label class="primaryLab">nom</label>
+        <input type="text" class="form-control" [(ngModel)]="magasin.nom" >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+        <label class="primaryLab">nombre Max produits</label>
+        <input type="number" class="form-control" [(ngModel)]="magasin.nbrMAxProduit" >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+        <label class="primaryLab">nombre Max d'employes</label>
+        <input type="number" class="form-control" [(ngModel)]="magasin.nbrMaxEmploye" >
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+        <label class="primaryLab">Reference de l'entite Administrative</label>
+          <input type="text" class="form-control" [(ngModel)]="magasin.refEntite">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-fouter">
+    <button class="btn btn-outline-dark btn-block" (click)="save()" [disabled]="!validateSave()">save</button>
+  </div>
+</div>
+</div>
+<div class="col-md-8" id="listeMag">
+  <h1> Listes des Magasins</h1>
+    <div class="card-body">
+      <table class="table table-dark table-hover table-striped">
+        <thead>
+        <th>reference</th>
+        <th>nom</th>
+        <th>nbrMaxProduit</th>
+        <th>nbrMaxEmploye</th>
+        <th>EntiteAdministratives</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of magasins">
+          <td>{{c.reference}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.nbrMAxProduit}}</td>
+          <td>{{c.nbrMaxEmploye}}</td>
+          <td>{{c.refEntite}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+</div>
+</div>
+</div>

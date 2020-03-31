@@ -14,7 +14,6 @@ export class AdministrationService {
   private _expressionBesionDetail : ExpressionBesionDetail;
   private _personnel : Personnel;
 
-
   public get entiteAdministrative(): EntiteAdministrative {
     return this._entiteAdministrative;
   }

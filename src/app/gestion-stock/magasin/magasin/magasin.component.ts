@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Magasin} from "../../../controller/model/magasin/magasin.model";
+import {MagasinService} from "../../../controller/service/magasin.service";
+import {EntiteAdministrative} from "../../../controller/model/administration/entite-administrative.model";
 
 @Component({
   selector: 'app-magasin',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MagasinComponent implements OnInit {
 
-  constructor() { }
+  constructor(private magasinService: MagasinService) { }
 
   ngOnInit(): void {
   }
 
+  public save() {
+    this.magasinService.save();
+  }
+  public validateSave(): boolean {
+    return this.magasinService.validateSave();
+  }
+  get magasins(): Array<Magasin> {
+    return this.magasinService.magasins;
+  }
+  get magasin(): Magasin {
+    return this.magasinService.magasin;
+  }
 }

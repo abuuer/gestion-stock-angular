@@ -53,9 +53,9 @@ export class ProduitService {
 
     );
   }
-
   public validateFournisseur(): boolean {
     return this.fournisseur.reference != null && this.fournisseur.nom != null && this.fournisseur.mail != null;
   }
+
 
 }

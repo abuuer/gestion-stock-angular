@@ -9,6 +9,7 @@ export class Magasin {
   public nbrProduit: number ;
   public nbrMaxEmploye: number ;
   public nbremploye: number ;
+  public refEntite: string ;
   public employes = new Array<Personnel>();
   public stocks = new Array<Stock>();
   public entiteAdministrative: EntiteAdministrative;

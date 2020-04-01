@@ -13,6 +13,8 @@ export class Magasin {
   public employes = new Array<Personnel>();
   public stocks = new Array<Stock>();
   public entiteAdministrative: EntiteAdministrative;
+  public refMagFind: string;
+  public refMagFindStockes: string;
 
   constructor() {
   }

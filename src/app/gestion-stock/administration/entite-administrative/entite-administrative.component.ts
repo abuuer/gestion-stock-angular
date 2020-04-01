@@ -12,13 +12,26 @@ export class EntiteAdministrativeComponent implements OnInit {
   constructor(private entiteAdministrativeService: EntiteAdministrativeService) { }
 
   ngOnInit(): void {
+    this.entiteAdministrativeService.findAll();
   }
 
-  get entiteAdministrative(): EntiteAdministrativeService {
+  get entiteAdministrative(): EntiteAdministrative {
    return  this.entiteAdministrativeService.entiteAdministrative;
   }
 
   public findByReference(ref: string): EntiteAdministrative {
     return this.entiteAdministrativeService.findByReference(ref);
+  }
+  public save(entiteAdministrative: EntiteAdministrative) {
+    this.entiteAdministrativeService.save(this.entiteAdministrative);
+  }
+  get entitiesAdministratives(): Array<EntiteAdministrative> {
+    return this.entiteAdministrativeService.entitiesAdministratives;
+  }
+  get loadedEntite(): EntiteAdministrative {
+    return this.entiteAdministrativeService.loadedEntite;
+  }
+  public deleteByReference(entiteAdministrative: EntiteAdministrative) {
+    this.entiteAdministrativeService.deleteByReference(entiteAdministrative);
   }
 }

@@ -8,12 +8,14 @@ import {FournisseurComponent} from "./gestion-stock/produit/fournisseur/fourniss
 import {LivraisonComponent} from "./gestion-stock/produit/livraison/livraison.component";
 import {StockComponent} from "./gestion-stock/magasin/stock/stock.component";
 import {MagasinComponent} from "./gestion-stock/magasin/magasin/magasin.component";
+import {FamilleProduitComponent} from "./gestion-stock/produit/famille-produit/famille-produit.component";
 
 const routes: Routes = [
   { path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent },
   { path: 'Personnel', component: PersonnelComponent },
   { path: 'EntiteAdministrative', component: EntiteAdministrativeComponent },
   { path: 'Produit', component: ProduitComponent },
+  {path: 'FamilleProduit', component: FamilleProduitComponent},
   { path: 'Fournisseur', component: FournisseurComponent },
   { path: 'Livraison', component: LivraisonComponent },
   { path: 'Stock', component: StockComponent },

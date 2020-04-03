@@ -9,6 +9,7 @@ export class FournisseurService {
 
   private _fournisseur: Fournisseur;
   private _fournisseurs: Array<Fournisseur>;
+  private _fournisseurSearch=new Fournisseur();
 
   constructor(private http: HttpClient) { }
   get fournisseur(): Fournisseur {
@@ -35,6 +36,14 @@ export class FournisseurService {
   }
 
 
+  get fournisseurSearch(): Fournisseur {
+    return this._fournisseurSearch;
+  }
+
+  set fournisseurSearch(value: Fournisseur) {
+    this._fournisseurSearch = value;
+  }
+
   private clone(fournisseur: Fournisseur): Fournisseur {
     const clone = new Fournisseur();
     clone.reference = fournisseur.reference;
@@ -52,6 +61,7 @@ export class FournisseurService {
         if (data > 0) {
           this.fournisseurs.push(this.clone(this.fournisseur));
           this.fournisseur = null;
+        } else {alert('la reference deja exist');
         }
       }, error =>  {
         console.log('erreur');
@@ -59,7 +69,18 @@ export class FournisseurService {
 
     );
   }
-
+public findByReference(ref: string): Fournisseur {
+    this.http.get<Fournisseur>('http://localhost:8090/Fournisseur-stock/fournisseur/reference/' + ref).subscribe(
+      data => {
+        if (data != null) {
+          this.fournisseurSearch = data;
+        } else {
+          alert('ce fournisseur existe pas');
+        }
+      }
+    );
+    return this.fournisseurSearch;
+}
   public findAll() {
     this.http.get<Array<Fournisseur>>('http://localhost:8090/Fournisseur-stock/fournisseur/').subscribe(
       data => {

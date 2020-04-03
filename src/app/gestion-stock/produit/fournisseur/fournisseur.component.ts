@@ -33,6 +33,13 @@ export class FournisseurComponent implements OnInit {
     return this.fournisseurService.fournisseurs;
   }
 
+  get fournisseurSearch(): Fournisseur {
+    return this.fournisseurService.fournisseurSearch;
+  }
+
+  public findByReference(ref: string): Fournisseur {
+    return this.fournisseurService.findByReference(ref);
+  }
 
 
 }

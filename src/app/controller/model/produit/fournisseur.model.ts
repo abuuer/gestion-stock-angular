@@ -8,6 +8,6 @@ export class Fournisseur {
   public  mail: string;
   public  nom: string;
   public telephone: string;
-
+  public refSearch: string;
 
 }

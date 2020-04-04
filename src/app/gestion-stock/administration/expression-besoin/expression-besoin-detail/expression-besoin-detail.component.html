@@ -1,1 +1,330 @@
-<p>expression-besoin-detail works!</p>
+
+
+<div class="cont">
+  <div class="img"></div>
+
+
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-4" (click)="changeValue('Ajouter')" >
+        <div class="card" style="height: 100px ; cursor: pointer">
+          <img src="../../../../assets/warehouse2.jpg" class="card-img-top" alt="...">
+          <div class="card-body" >
+            <h5 class="card-title"  >Ajouter Nouveau Expression De Besoin</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" (click)="changeValue('Supprimer')" >
+        <div class="card" style="height: 100px ; cursor: pointer" >
+          <img src="../../../../assets/warehouse2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" >Supprimer Un Expression De Besoin</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4" (click)="changeValue('Chercher')" >
+        <div class="card" style="height: 100px; cursor: pointer">
+          <img src="../../../../assets/warehouse2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title" >Chercher Un Expression De Besoin</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row main">
+      <div class="col-md-12">
+        <div class="card" >
+          <img src="../../../../../assets/warehouse.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <div   [ngSwitch]="selectedValue">
+              <div *ngSwitchDefault >
+                <div class="card">
+                  <div class="card-header"><b>Expression De Besoin</b></div>
+                  <div class="card-body">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label>Reference</label>
+                          <input type="text" class="form-control" placeholder="Reference"
+                                 [(ngModel)]="expressionBesoin.reference" name="ref">
+                        </div>
+                      </div>
+                    </form>
+                    <br>
+                    <div class="card">
+                      <div class="card-header">Datail De L'expression De Besoin</div>
+                      <div class="card-body">
+                        <form>
+                          <div class="form-group">
+                            <label >Réference</label>
+                            <input type="text" class="form-control"  placeholder="Réference"
+                                   [(ngModel)]="expressionBesoinDetail.reference" name="refe">
+                          </div>
+                          <div class="form-group">
+                            <label >Quantité</label>
+                            <input type="text" class="form-control" placeholder="Quantité"
+                                   [(ngModel)]="expressionBesoinDetail.qte" name="qte">
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div  class="form-group">
+                                <label >Produit</label>
+                                <select class="form-control"
+                                        [(ngModel)]="expressionBesoinDetail.produit.reference" name="refprod">
+                                  <option name="PC" *ngFor="let p of produits">{{p.reference}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div  class="form-group">
+                                <label >Entite Administrative</label>
+                                <select class="form-control" [(ngModel)]="expressionBesoin.entiteAdministrative.reference" name="refprod">
+                                  <option name="PC" *ngFor="let e of entiteAdmins" >{{e.reference}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div  class="form-group">
+                                <label >Chef</label>
+                                <select class="form-control" [(ngModel)]="expressionBesoin.chef.code" name="refprod">
+                                  <option name="PC" *ngFor="let p of chefs">{{p.code}}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="card-footer">
+                        <div class="btn btn-outline-dark btn-block" (click)="addProd()">Add Produit</div>
+                      </div>
+                    </div>
+                    <table class="table">
+                      <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Reference Prod</th>
+                        <th scope="col">Qantité</th>
+                        <th scope="col">Reference Admin</th>
+                        <th scope="col">Code Chef</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                       <tr *ngFor="let p of expressionBesoin.expressionBesoinDetails" >
+                        <th scope="row"  >{{p.reference}}</th>
+                        <td>{{p.produit.reference}}</td>
+                        <td>{{p.qte}}</td>
+                        <td>{{expressionBesoin.entiteAdministrative.reference}}</td>
+                        <td>{{expressionBesoin.chef.code}}</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-success" style="align-items: center" (click)="save()">Sumbmit</button>
+                  </div>
+                </div>
+              </div>
+              <div *ngSwitchCase="'Supprimer' ">
+                <div class="card">
+                  <div class="card-header"><b>Supprimer Une Expression De Besoin</b></div>
+                  <div class="card-body">
+                    <div  class="form-group">
+                      <label >Produit</label>
+                      <select class="form-control" [(ngModel)]="expressionBesoin.reference" name="refprod">
+                        <option name="PC" *ngFor="let edb of expressionBesoins">{{edb.reference}}</option>
+                      </select>
+                  </div>
+                    <div class="form-group">
+                      <table class="table table-striped">
+                        <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Reference</th>
+                          <th scope="col">Etat</th>
+                          <th scope="col">Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="table-danger" >
+                          <th scope="row"></th>
+                          <td>{{expressionBesoin.reference}}</td>
+                          <td>{{expressionBesoin.etat}}</td>
+                          <td>{{expressionBesoin.dateExpressionBesoin}}</td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                  <div class="card-footer">
+                    <div class="btn btn-outline-danger btn-block" (click)="deleteByReference(expressionBesoin)" >Supprimer Le Besoin</div>
+                  </div>
+              </div>
+            </div>
+              <div *ngSwitchCase="'Chercher'">
+                <div >
+                  <div class="card">
+                    <div class="card-header">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <button class="btn btn-outline-secondary btn-block" (click)="changeValueSearch('All')">Find All</button>
+                        </div>
+                        <div class="col-md-3">
+                          <button class="btn btn-outline-info btn-block" (click)="changeValueSearch('Reference')">Find By Reference</button>
+                        </div>
+                        <div class="col-md-3">
+                          <button class="btn btn-outline-dark btn-block" (click)="changeValueSearch('Date')">Find By Date</button>
+                        </div>
+
+                        <div class="col-md-3">
+                          <button class="btn btn-outline-success btn-block" (click)="changeValueSearch('Chef')">Find By Chef</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-body" >
+                      <div [ngSwitch]="selectedSearch">
+                        <div *ngSwitchDefault>
+                          <div class="row">
+                            <div class="col-md-12">
+                            <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Etat</th>
+                                <th scope="col">Date</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr class="table-bordered" *ngFor="let edb of expressionBesoins">
+                                <th scope="row"></th>
+                                <td>{{edb.reference}}</td>
+                                <td>{{edb.etat}}</td>
+                                <td>{{edb.dateExpressionBesoin}}</td>
+                              </tr>
+                              </tbody>
+                            </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngSwitchCase="'Reference'">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="search">
+                                <input type="text"  class="form-control input-sm" maxlength="64"
+                                       placeholder="Entrer une reference d'expression de besoin"
+                                       [(ngModel)]="expressionBesoin.reference" />
+                                <button type="submit"  class="btn btn-primary btn-sm" (click)="showfoundByRef(expressionBesoin)">Search</button>
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Reference</th>
+                                  <th scope="col">Etat</th>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Entite Admin</th>
+                                  <th scope="col">Chef</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="table-danger" >
+                                  <th scope="row"></th>
+                                  <td>{{foundedByREference.reference}}</td>
+                                  <td>{{foundedByREference.etat}}</td>
+                                  <td>{{foundedByREference.dateExpressionBesoin}}</td>
+                                  <td>{{foundedByREference.entiteAdministrative.nom}}</td>
+                                  <td>{{foundedByREference.chef.nom}}</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngSwitchCase="'Date'">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="search">
+                                <input type="date"  class="form-control input-sm" maxlength="64"
+                                       placeholder="Choisir une date d'expression de besoin"
+                                       [(ngModel)]="expressionBesoin.dateExpressionBesoin" />
+                                <button type="submit"  class="btn btn-primary btn-sm" (click)="findBydateExpressionBesoin(expressionBesoin)">Search</button>
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Reference</th>
+                                  <th scope="col">Etat</th>
+                                  <th scope="col">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="table-danger" >
+                                  <th scope="row"></th>
+                                  <td>{{expressionBesoin.reference}}</td>
+                                  <td>{{expressionBesoin.etat}}</td>
+                                  <td>{{expressionBesoin.dateExpressionBesoin}}</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <div *ngSwitchCase="'Chef'">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="search">
+                                <input type="text"  class="form-control input-sm" maxlength="64" placeholder="Saisir un code de chef" [(ngModel)]="expressionBesoin.chef.code" />
+                                <button type="submit"  class="btn btn-primary btn-sm" (click)="findByChef(expressionBesoin)">Search</button>
+                              </div>
+                            </div>
+                          </div>
+                          <br>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Reference</th>
+                                  <th scope="col">Etat</th>
+                                  <th scope="col">Date</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="table-danger" >
+                                  <th scope="row"></th>
+                                  <td>{{expressionBesoin.reference}}</td>
+                                  <td>{{expressionBesoin.etat}}</td>
+                                  <td>{{expressionBesoin.dateExpressionBesoin}}</td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

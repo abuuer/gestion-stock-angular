@@ -1,1 +1,302 @@
-<p>personnel works!</p>
+<div class="cont">
+  <div class="img"></div>
+    <div class="container">
+      <div class="card">
+        <img src="../../../../assets/administration.jpg" alt="">
+        <div class="card-header" style="text-align: center"><b>Page Employe</b> </div>
+        <div class="card-body">
+          <div class="card">
+            <img src="../../../../assets/administration.jpg" alt="">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-3" (click)="changeValue('Ajouter')">
+                  <button class="btn btn-outline-info btn-block">Ajouter Un Nouveau Employe</button>
+                </div>
+                <div class="col-md-3" (click)="changeValue('Transferer')">
+                  <button class="btn btn-outline-info btn-block">Transferer Un Employe</button>
+                </div>
+                <div class="col-md-3" (click)="changeValue('Affecter')">
+                  <button class="btn btn-outline-info btn-block">Affecter Un Nouveau Chef</button>
+                </div>
+                <div class="col-md-3" (click)="changeValue('Supprimer')">
+                  <button class="btn btn-outline-info btn-block">Supprimer Un Employe</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body" [ngSwitch]="selectedValue">
+              <div *ngSwitchDefault>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nom Complet</label>
+                      <input type="text" class="form-control" name="reference" placeholder="Nom complet de l'employe"
+                             [(ngModel)]="personnel.nom">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Code</label>
+                      <input type="text" class="form-control" name="Code" placeholder="Nouveau Code"
+                             [(ngModel)]="personnel.code">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Numero De Télé</label>
+                      <input type="text" class="form-control" name="tele" placeholder="Num de Télé"
+                             [(ngModel)]="personnel.telephone">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Salaire</label>
+                      <input type="text" class="form-control" name="Salaire" placeholder="Salaire"
+                             [(ngModel)]="personnel.salary">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label>Code Du Chef</label>
+                      <select class="form-control" [(ngModel)]="personnel.codeChef" name="refprod">
+                        <option name="chef" *ngFor="let p of chefs">{{p.codeChef}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12"><button class="btn btn-outline-success btn-block">Ajouter l'employe</button></div>
+                </div>
+              </div>
+              <div *ngSwitchCase="'Transferer'">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Code de l'employe</label>
+                    <input type="text" class="form-control" name="codeEmp" placeholder="Code de l'employe"
+                           [(ngModel)]="personnel.code">
+                  </div>
+                  <div class="col-md-6">
+                    <label>Reference De L'entite Administrative</label>
+                    <input type="text" class="form-control" name="AdminRef" placeholder="Reference De L'entite Administrative"
+                           [(ngModel)]="personnel.entiteAdministrative.reference">
+                    <div class="row">
+                      <div class="col-md-12">Nom De L'entite Administrative : {{personnel.entiteAdministrative.nom}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <br>
+                    <button class="btn btn-outline-success btn-block">Transferer l'employe</button>
+                  </div>
+                </div>
+              </div>
+              <div *ngSwitchCase="'Affecter'">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Code de Nouveau Chef</label>
+                    <input type="text" class="form-control" name="codeChef" placeholder="Code de l'employe"
+                           [(ngModel)]="personnel.codeChef">
+                    <div class="row">
+                      <div class="col-md-12"><label>Nom Du Chef Selectionner : {{personnel.nom}}</label></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label>Code de L'ancien Chef</label>
+                    <input type="text" class="form-control" name="codeChef" placeholder="Code de l'employe"
+                           [(ngModel)]="personnel.codeChef">
+                    <div class="row">
+                      <div class="col-md-12"><label>Nom Du Chef Selectionner : {{personnel.nom}}
+                      </label></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <br>
+                    <button class="btn btn-outline-success btn-block">Affecter Le Nouveau Chef</button>
+                  </div>
+                </div>
+              </div>
+              <div *ngSwitchCase="'Supprimer'">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label>Code de D'employe</label>
+                    <input type="text" class="form-control" name="codeChef" placeholder="Code de l'employe"
+                           [(ngModel)]="personnel.codeChef">
+                    <br>
+                    <div class="row">
+                      <div class="col-md-12"><label>Nom Du Chef Selectionner : {{personnel.nom}}</label></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <br>
+                    <button class="btn btn-outline-danger btn-block">Supprimer l'employe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <img src="../../../../assets/administration.jpg" alt="">
+        <div class="card-header" style="text-align: center"><b>Find Employee</b></div>
+        <div class="card-body">
+          <div class="card">
+            <img src="../../../../assets/administration.jpg" alt="">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-4" (click)="changeValue('All')">
+                  <button class="btn btn-outline-info btn-block">All</button>
+                </div>
+                <div class="col-md-4" (click)="changeValue('Fonction')">
+                  <button class="btn btn-outline-info btn-block">Fonction</button>
+                </div>
+                <div class="col-md-4" (click)="changeValue('Salaire')">
+                  <button class="btn btn-outline-info btn-block">Salaire</button>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4" (click)="changeValue('Experience')">
+                  <button class="btn btn-outline-info btn-block">Experience</button>
+                </div>
+                <div class="col-md-4" (click)="changeValue('Expression')">
+                  <button class="btn btn-outline-info btn-block">Expression De Besoin</button>
+                </div>
+                <div class="col-md-4" (click)="changeValue('Chef')">
+                  <button class="btn btn-outline-info btn-block">Chef</button>
+                </div>
+              </div>
+            </div>
+            <div class="card-body" >
+              <div class="row" [ngSwitch]="selectedValue">
+                <div class="col-md-6" *ngSwitchCase="'Fonction'"> <div class="search">
+                  <input type="text"  class="form-control input-sm" maxlength="64"
+                         placeholder="Saisir une Fonction"
+                         [(ngModel)]="personnel.fonction" />
+                  <button type="submit"  class="btn btn-outline-info btn-sm">Search</button>
+                </div></div>
+                <div class="col-md-6" *ngSwitchCase="'Salaire'"><div class="search">
+                  <input type="text"  class="form-control input-sm" maxlength="64"
+                         placeholder="Saisir Un Salaire"
+                         [(ngModel)]="personnel.salary" />
+                  <button type="submit"  class="btn btn-outline-info btn-sm">Search</button>
+                </div> </div>
+                <div class="col-md-6" *ngSwitchCase="'Experience'"> <div class="search">
+                  <input type="text"  class="form-control input-sm" maxlength="64"
+                         placeholder="Saisir Un Nombre D'année"
+                         [(ngModel)]="personnel.yearsExp" />
+                  <button type="submit"  class="btn btn-outline-info btn-sm">Search</button>
+                </div></div>
+                <div class="col-md-6" *ngSwitchCase="'Expression'"><div class="search">
+                  <input type="text"  class="form-control input-sm" maxlength="64"
+                         placeholder="Saisir Une Reference D'un Expression De Besoin"
+                         [(ngModel)]="personnel.fonction" />
+                  <button type="submit"  class="btn btn-outline-info btn-sm">Search</button>
+                </div> </div>
+                <div class="col-md-6" *ngSwitchCase="'Chef'"><div class="search">
+                  <input type="text"  class="form-control input-sm" maxlength="64"
+                         placeholder="Saisir Un Code Chef"
+                         [(ngModel)]="personnel.codeChef" />
+                  <button type="submit"  class="btn btn-outline-info btn-sm">Search</button>
+                </div></div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <table class="table table-light" [ngSwitch]="selectedValue">
+                    <thead>
+                    <tr>
+                      <th scope="col">Code</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Num Tele</th>
+                      <th scope="col">Fonction</th>
+                      <th scope="col">Salaire</th>
+                      <th scope="col">Annee Exp</th>
+                      <th scope="col">Chef</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngSwitchDefault>
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    </tbody>
+                    <tbody *ngSwitchCase="'Fonction'">
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td>{{p.telephone}}</td>
+                      <td>{{p.fonction}}</td>
+                      <td>{{p.salary}}</td>
+                      <td>{{p.yearsExp}}</td>
+                      <td>{{p.codeChef}}</td>
+                    </tr>
+                    </tbody>
+                    <tbody *ngSwitchCase="'Salaire'">
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td>{{p.telephone}}</td>
+                      <td>{{p.fonction}}</td>
+                      <td>{{p.salary}}</td>
+                      <td>{{p.yearsExp}}</td>
+                      <td>{{p.codeChef}}</td>
+                    </tr>
+                    </tbody>
+                    <tbody *ngSwitchCase="'Experience'">
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td>{{p.telephone}}</td>
+                      <td>{{p.fonction}}</td>
+                      <td>{{p.salary}}</td>
+                      <td>{{p.yearsExp}}</td>
+                      <td>{{p.codeChef}}</td>
+                    </tr>
+                    </tbody>
+                    <tbody *ngSwitchCase="'Expression'">
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td>{{p.telephone}}</td>
+                      <td>{{p.fonction}}</td>
+                      <td>{{p.salary}}</td>
+                      <td>{{p.yearsExp}}</td>
+                      <td>{{p.codeChef}}</td>
+                    </tr>
+                    </tbody>
+                    <tbody *ngSwitchCase="'Chef'">
+                    <tr class="table-success" *ngFor="let p of personnels">
+                      <th scope="row">{{p.code}}</th>
+                      <td>{{p.nom}}</td>
+                      <td>{{p.telephone}}</td>
+                      <td>{{p.fonction}}</td>
+                      <td>{{p.salary}}</td>
+                      <td>{{p.yearsExp}}</td>
+                      <td>{{p.codeChef}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

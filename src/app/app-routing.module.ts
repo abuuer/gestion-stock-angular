@@ -8,24 +8,22 @@ import {FournisseurComponent} from "./gestion-stock/produit/fournisseur/fourniss
 import {LivraisonComponent} from "./gestion-stock/produit/livraison/livraison.component";
 import {StockComponent} from "./gestion-stock/magasin/stock/stock.component";
 import {MagasinComponent} from "./gestion-stock/magasin/magasin/magasin.component";
-import {Magasin2Component} from "./gestion-stock/magasin/magasin2/magasin2.component";
-import {Magasin3Component} from "./gestion-stock/magasin/magasin3/magasin3.component";
-import {Magasin4Component} from "./gestion-stock/magasin/magasin4/magasin4.component";
-import {Magasin5Component} from "./gestion-stock/magasin/magasin5/magasin5.component";
+import {ExpressionBesoinDetailComponent} from "./gestion-stock/administration/expression-besoin/expression-besoin-detail/expression-besoin-detail.component";
+import {FamilleProduitComponent} from "./gestion-stock/produit/famille-produit/famille-produit.component";
 
 const routes: Routes = [
   { path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent },
+  { path: 'ExpressionDeBesoinDetail', component: ExpressionBesoinDetailComponent },
   { path: 'Personnel', component: PersonnelComponent },
   { path: 'EntiteAdministrative', component: EntiteAdministrativeComponent },
   { path: 'Produit', component: ProduitComponent },
+  {path: 'FamilleProduit', component: FamilleProduitComponent},
   { path: 'Fournisseur', component: FournisseurComponent },
   { path: 'Livraison', component: LivraisonComponent },
   { path: 'Stock', component: StockComponent },
   { path: 'Magasin', component: MagasinComponent },
-  { path: 'Magasin2', component: Magasin2Component },
-  { path: 'Magasin3', component: Magasin3Component },
-  { path: 'Magasin4', component: Magasin4Component },
-  { path: 'Magasin5', component: Magasin5Component },
+  // dafault rout :
+  { path: '', redirectTo: 'ExpressionDeBesoinDetail', pathMatch: 'full'}
 
 ];
 //A typical Angular Route has two properties:
@@ -33,7 +31,7 @@ const routes: Routes = [
 // component: the component that the router should create when navigating to this route.
 // This tells the router to match that URL to path: 'heroes' and display the HeroesComponent when the URL is something
 // like localhost:4200/ExpressionBesion.
-
+//ng generate module app-routing --flat --module=app
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

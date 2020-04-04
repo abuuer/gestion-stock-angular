@@ -3,6 +3,7 @@ export class Produit {
   public libelle: string ;
   public prixUnitaireHT: number ;
   public tauxTVA: number ;
+  public tva: number;
   public prixUnitaireTTC: number ;
 
   constructor() {

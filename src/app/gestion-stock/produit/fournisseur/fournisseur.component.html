@@ -132,7 +132,6 @@
       <th>Telephone</th>
       <th>Ville</th>
       <th>Adresse</th>
-      <th>Action</th>
       </thead>
       <tbody>
         <td>{{fournisseurSearch.reference}}</td>
@@ -141,6 +140,47 @@
         <td>{{fournisseurSearch.telephone}}</td>
         <td>{{fournisseurSearch.ville}}</td>
         <td>{{fournisseurSearch.adresse}}</td>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+<br>
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="fournisseurLike.refLike">
+        <button class="btn btn-outline-success btn-block" (click)="findByReferenceLike(fournisseurLike.refLike)">SEARCH</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<div  class="card">
+  <div id="card-header4" class="card-header">Trouver fournisseursLike</div>
+  <div id="card-body4" class="card-body">
+    <table class="table table-dark table-hover table-striped">
+      <thead>
+      <th>Reference</th>
+      <th>Nom</th>
+      <th>E-Mail</th>
+      <th>Telephone</th>
+      <th>Ville</th>
+      <th>Adresse</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of fournisseursLike">
+      <td>{{c.reference}}</td>
+      <td>{{c.nom}}</td>
+      <td>{{c.mail}}</td>
+      <td>{{c.telephone}}</td>
+      <td>{{c.ville}}</td>
+      <td>{{c.adresse}}</td>
+      </tr>
       </tbody>
     </table>
   </div>

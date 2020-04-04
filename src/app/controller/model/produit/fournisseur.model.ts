@@ -9,5 +9,5 @@ export class Fournisseur {
   public  nom: string;
   public telephone: string;
   public refSearch: string;
-
+  public refLike: string;
 }

@@ -17,6 +17,7 @@ import { FamilleProduitComponent } from './gestion-stock/produit/famille-produit
 import { SideBarComponent } from './gestion-stock/side-bar/side-bar.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -33,15 +34,17 @@ import { AppRoutingModule } from './app-routing.module';
     StockComponent,
     FournisseurComponent,
     FamilleProduitComponent,
-    SideBarComponent
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

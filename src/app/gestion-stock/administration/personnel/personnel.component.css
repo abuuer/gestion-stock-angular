@@ -1,0 +1,19 @@
+cont {
+  position: relative;
+
+}
+.img {
+  background-image: url("src/assets/administration.jpg");
+  width: 1090px;
+  height: 901px;
+  margin-left: -115px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  position: absolute;
+  opacity: 95%;
+
+}
+.container {
+  position: absolute;
+  padding-top: 50px;
+}

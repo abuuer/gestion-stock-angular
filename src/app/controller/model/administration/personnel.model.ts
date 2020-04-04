@@ -7,8 +7,8 @@ export class Personnel {
   public salary : number ;
   public yearsExp : number ;
   public codeChef : String ;
-  private points : number ;
-  private dateEmbauche : Date ;
+  public points : number ;
+  public dateEmbauche : Date ;
 
   constructor() {
   }

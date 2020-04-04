@@ -1,1 +1,96 @@
-<p>entite-administrative works!</p>
+<div class="row">
+  <div class="col-md-4">
+    <h4> save Entite Administrative</h4>
+    <div class="card">
+
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">reference</label>
+              <input type="text" class="form-control" [(ngModel)]="entiteAdministrative.reference">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">nom</label>
+              <input type="text" class="form-control" [(ngModel)]="entiteAdministrative.nom">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">code Chef</label>
+              <input type="text" class="form-control" [(ngModel)]="entiteAdministrative.chef.code">
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-fouter">
+        <button class="btn btn-outline-dark btn-block" (click)="save(entiteAdministrative)">save</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div >
+      <h2> Listes des EntiteAdministratives</h2>
+      <table class="table table-dark table-hover table-striped table-bordered">
+        <thead >
+        <th class="col-md-3">Reference</th>
+        <th class="col-md-3">Nom</th>
+        <th class="col-md-3">Code Chef</th>
+        <th class="col-md-3">Action</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of entitiesAdministratives">
+          <td>{{c.reference}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.chef.code}}</td>
+          <td><button type="button" class="btn btn-sm btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div> <br><br>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="form-group">
+        <h4 style="color: cornflowerblue">find entiteAd by reference</h4>
+        <input type="text" class="form-control" [(ngModel)]="loadedEntite.refEntiteTofind">
+        <button class="btn btn-block btn-outline-dark" (click)="findByReference(loadedEntite.refEntiteTofind)">search</button>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row">
+      <h5 style="color: cadetblue">Founded Entite Administrative</h5>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+        <th>Reference</th>
+        <th>Nom</th>
+        <th>Code Chef</th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{loadedEntite.reference}}</td>
+          <td>{{loadedEntite.nom}}</td>
+          <td>{{loadedEntite.chef.code}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-8"></div>
+</div>

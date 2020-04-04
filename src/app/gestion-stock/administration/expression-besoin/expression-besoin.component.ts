@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AdministrationService } from 'src/app/controller/service/administration.service';
-import {EntiteAdministrative} from "../../../controller/model/entite-administrative.model";
 
 @Component({
   selector: 'app-expression-besoin',
@@ -10,6 +9,9 @@ import {EntiteAdministrative} from "../../../controller/model/entite-administrat
 export class ExpressionBesoinComponent implements OnInit {
 
   constructor(private administrationService : AdministrationService) { }
+
+
+
 
   ngOnInit(): void {
   }

@@ -1,0 +1,40 @@
+#card-header1{
+  text-align: center;
+  font-family: Algerian;
+  color:black;
+  background-color:chartreuse;
+}
+
+#card-body1{
+  background-color:greenyellow;
+}
+
+#card-footer1{
+  background-color:bisque;
+}
+
+#card-header2{
+  text-align: center;
+  font-family: Algerian;
+  color: gold;
+  background-color:blue;
+}
+
+#card1{
+  background-color: aquamarine;
+}
+#yes{
+  font-family: Algerian;
+  text-align: center;
+  position: absolute;
+  top:60px;
+  right: 0px;
+  color:blueviolet;
+}
+
+#card-header3{
+  font-family: Algerian;
+  text-align: center;
+  background-color:gray;
+  color: bisque;
+}

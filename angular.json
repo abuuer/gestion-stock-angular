@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gestion-stock-app"
+    }
+  },
+  "defaultProject": "gestion-stock-app",
+  "cli": {
+    "analytics": "4fb390aa-cf05-47cb-bd37-1cfe810d19ab"
+  }
 }

@@ -1,6 +1,8 @@
-export class Familleproduit {
-  public libelle : String ;
+import {Produit} from "../magasin/produit.model";
 
-  constructor() {
-  }
+export class Familleproduit {
+  public libelle: string ;
+   public produits = new Array<Produit>();
+
+  constructor() {}
 }

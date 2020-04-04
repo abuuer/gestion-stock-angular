@@ -9,6 +9,7 @@ import {LivraisonComponent} from "./gestion-stock/produit/livraison/livraison.co
 import {StockComponent} from "./gestion-stock/magasin/stock/stock.component";
 import {MagasinComponent} from "./gestion-stock/magasin/magasin/magasin.component";
 import {ExpressionBesoinDetailComponent} from "./gestion-stock/administration/expression-besoin/expression-besoin-detail/expression-besoin-detail.component";
+import {FamilleProduitComponent} from "./gestion-stock/produit/famille-produit/famille-produit.component";
 
 const routes: Routes = [
   { path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'Personnel', component: PersonnelComponent },
   { path: 'EntiteAdministrative', component: EntiteAdministrativeComponent },
   { path: 'Produit', component: ProduitComponent },
+  {path: 'FamilleProduit', component: FamilleProduitComponent},
   { path: 'Fournisseur', component: FournisseurComponent },
   { path: 'Livraison', component: LivraisonComponent },
   { path: 'Stock', component: StockComponent },

@@ -1,1 +1,106 @@
-<p>famille-produit works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+<div class="card">
+  <div class="card-header">Famille Produit</div>
+  <div class="card-Body">
+      <div class="col-md-6">
+    <div  class="form-group">
+      <label>Libelle</label>
+      <input type="text" class="form-control" [(ngModel)]="familleProduit.libelle">
+    </div>
+      </div>
+      <div class="col-md-11">
+    <div id="card-1" class="card">
+      <div class="card-header">Produits</div>
+      <div class="card-body">
+        <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+        <label>Reference</label>
+        <input type="text" class="form-control" [(ngModel)]="produit.reference">
+      </div>
+        </div>
+          <div class="col-md-6">
+        <div class="form-group">
+          <label>Libelle</label>
+          <input type="text" class="form-control" [(ngModel)]="produit.libelle">
+        </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+        <div class="form-group">
+          <label>Prix Unitaire HT</label>
+          <input type="number" class="form-control" [(ngModel)]="produit.prixUnitaireHT">
+        </div>
+          </div>
+          <div class="col-md-6">
+        <div class="form-group">
+          <label>Taux TVA</label>
+          <input type="number" class="form-control" [(ngModel)]="produit.tauxTVA">
+        </div>
+          </div>
+          </div>
+        <div class="form-group">
+        <label>Prix Unitaire TTC</label>
+        <input type="number" class="form-control" [(ngModel)]="produit.prixUnitaireTTC">
+      </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-outline-info btn-block" (click)="addProduit()">+</button>
+      </div>
+    </div>
+      </div>
+    <br>
+    <div class="card">
+      <div class="card-header">Liste des Produits</div>
+      <div class="card-body">
+        <table class="table table-dark table-hover table-striped">
+          <thead>
+          <th>Reference</th>
+          <th>Libelle</th>
+          <th>Prix Unitaire HT</th>
+          <th>Taux TVA</th>
+          <th>Prix Unitaire TTC</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let c of familleProduit.produits">
+            <td>{{c.reference}}</td>
+            <td>{{c.libelle}}</td>
+            <td>{{c.prixUnitaireHT}}</td>
+            <td>{{c.tauxTVA}}</td>
+            <td>{{c.prixUnitaireTTC}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-outline-dark btn-block" (click)="save()">SAVE</button>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div  class="card">
+  <div  class="card-header">Liste des familles produits</div>
+  <div  class="card-body">
+    <table class="table table-dark table-hover table-striped">
+      <thead>
+      <th>Libelle</th>
+      <th>Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of familleProduits">
+        <td>{{c.libelle}}</td>
+        <td><button class="btn btn-sm fa fa-trash" (click)="deleteBylibelle(c)"></button></td>
+      </tbody>
+    </table>
+  </div>
+</div>
+

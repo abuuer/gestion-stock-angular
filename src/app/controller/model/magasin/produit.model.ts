@@ -1,10 +1,9 @@
 export class Produit {
-  public reference : String ;
-  public nom : String ;
-  public libelle : String ;
-  public prixUnitaireHT : number ;
-  public tauxTVA : number ;
-  public prixUnitaireTTC : number ;
+  public reference: string ;
+  public libelle: string ;
+  public prixUnitaireHT: number ;
+  public tauxTVA: number ;
+  public prixUnitaireTTC: number ;
 
   constructor() {
   }

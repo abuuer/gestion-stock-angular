@@ -18,6 +18,10 @@ import { SideBarComponent } from './gestion-stock/side-bar/side-bar.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import { Magasin2Component } from './gestion-stock/magasin/magasin2/magasin2.component';
+import { Magasin3Component } from './gestion-stock/magasin/magasin3/magasin3.component';
+import { Magasin4Component } from './gestion-stock/magasin/magasin4/magasin4.component';
+import { Magasin5Component } from './gestion-stock/magasin/magasin5/magasin5.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import {HttpClientModule} from "@angular/common/http";
     StockComponent,
     FournisseurComponent,
     FamilleProduitComponent,
-    SideBarComponent
+    SideBarComponent,
+    Magasin2Component,
+    Magasin3Component,
+    Magasin4Component,
+    Magasin5Component
   ],
   imports: [
     BrowserModule,

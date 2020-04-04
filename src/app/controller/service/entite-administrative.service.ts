@@ -12,6 +12,7 @@ export class EntiteAdministrativeService {
   private _entiteAdministrative: EntiteAdministrative;
   private _entitiesAdministratives: Array<EntiteAdministrative>;
   private _loadedEntite = new EntiteAdministrative();
+  private foundedEntites = new Array<EntiteAdministrative>();
   private url = 'http://localhost:8090/gestion-stock-v1/EntiteAdministrative/';
 
   constructor(private http: HttpClient) { }
@@ -57,15 +58,32 @@ export class EntiteAdministrativeService {
       data => {
         if (data != null) {
           console.log('success  ALL Enteties founded');
-          this._entitiesAdministratives = data ;
+          this.entitiesAdministratives = data ;
         } else {
           console.log('Pas d entete Administrative dans la base de donnees');
-          this._entitiesAdministratives = data ;
+          this.entitiesAdministratives = data ;
         }
       }, error => {
         console.log('error mal9Ach les EntitesAdm.');
       }
     );
+  }
+
+  public findAllEntites(): Array<EntiteAdministrative> {
+    this.http.get<Array<EntiteAdministrative>>(this.url + 'findAll').subscribe(
+      data => {
+        if (data != null) {
+          console.log('success  ALL Enteties founded');
+          this.foundedEntites = data ;
+        } else {
+          console.log('Pas d entete Administrative dans la base de donnees');
+          this.foundedEntites = data ;
+        }
+      }, error => {
+        console.log('error mal9Ach les EntitesAdm.');
+      }
+    );
+    return this.foundedEntites;
   }
   public deleteByReferenceFromView(entiteAdministrative: EntiteAdministrative) {
     const index = this._entitiesAdministratives.findIndex(c => c.reference === entiteAdministrative.reference);
@@ -90,6 +108,19 @@ export class EntiteAdministrativeService {
     );
   }
 
+  public addEmployeToMagasin(codeEmploye: string, refMagasin: string) {
+    this.http.put<number>(this.url + 'AddEmployeToMagasin/code/' + codeEmploye + '/refMagasin/' + refMagasin, this.entiteAdministrative).subscribe(
+      data => {
+        if (data > 0) {
+          console.log('success employe added to this magasin');
+          alert('success employe added to this magasin');
+        } else {
+          console.log('the reference of magasin or the code of employe is not valid');
+          alert('the reference of magasin or the code of employe is not valid');
+        }
+      }
+    );
+  }
   get entiteAdministrative(): EntiteAdministrative {
     if (this._entiteAdministrative == null) {
       this._entiteAdministrative = new EntiteAdministrative() ;
@@ -119,7 +150,7 @@ export class EntiteAdministrativeService {
     clone.chef = entite.chef;
     clone.employes = entite.employes;
     clone.magasins = entite.magasins;
-    clone.expressionBesoins = clone.expressionBesoins;
+    clone.expressionBesoins = entite.expressionBesoins;
     return clone;
   }
 

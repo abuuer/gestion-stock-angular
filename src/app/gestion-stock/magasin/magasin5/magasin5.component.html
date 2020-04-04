@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">Ajouter un produit dans un Magasin</div>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">reference de stock</label>
+              <input type="text" placeholder="entrez un reference" class="form-control" [(ngModel)]="loadedStock.reference" >
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">reference de magasin</label>
+              <input type="text" class="form-control" [(ngModel)]="loadedStock.magasin.reference" >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">reference de produit</label>
+              <input type="text" class="form-control" [(ngModel)]="loadedStock.produit.reference" >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">quantite Max de prod in Magasin</label>
+              <input type="number" class="form-control" [(ngModel)]="loadedStock.quantiteMax" >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="primaryLab">quantite shouaitez ajoutée</label>
+              <input type="number" class="form-control" [(ngModel)]="loadedStock.qte" >
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-fouter">
+        <button class="btn btn-block btn-outline-info" (click)="addProductToMagasin(loadedStock.reference, loadedStock.magasin.reference, loadedStock.produit.reference, loadedStock.quantiteMax, loadedStock.qte)">valider</button>
+      </div>
+    </div>
+  </div>
+</div>

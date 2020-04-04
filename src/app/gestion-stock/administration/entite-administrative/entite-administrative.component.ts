@@ -20,10 +20,19 @@ export class EntiteAdministrativeComponent implements OnInit {
   }
 
   public findByReference(ref: string): EntiteAdministrative {
-    return this.entiteAdministrativeService.findByReference(ref);
+    if (ref != null) {
+      return this.entiteAdministrativeService.findByReference(ref);
+    } else {
+      alert('please enter the reference');
+    }
+
   }
   public save(entiteAdministrative: EntiteAdministrative) {
-    this.entiteAdministrativeService.save(this.entiteAdministrative);
+    if (entiteAdministrative.reference != null && entiteAdministrative.nom != null && entiteAdministrative.chef.code != null) {
+      this.entiteAdministrativeService.save(this.entiteAdministrative);
+    } else {
+      alert('please fill out the form');
+    }
   }
   get entitiesAdministratives(): Array<EntiteAdministrative> {
     return this.entiteAdministrativeService.entitiesAdministratives;
@@ -34,4 +43,8 @@ export class EntiteAdministrativeComponent implements OnInit {
   public deleteByReference(entiteAdministrative: EntiteAdministrative) {
     this.entiteAdministrativeService.deleteByReference(entiteAdministrative);
   }
+  public addEmployeToMagasin(codeEmploye: string, refMagasin: string) {
+    this.entiteAdministrativeService.addEmployeToMagasin(codeEmploye, refMagasin);
+  }
+
 }

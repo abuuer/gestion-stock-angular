@@ -3,6 +3,9 @@ import {Magasin} from "../../../controller/model/magasin/magasin.model";
 import {MagasinService} from "../../../controller/service/magasin.service";
 import {EntiteAdministrative} from "../../../controller/model/administration/entite-administrative.model";
 import {Stock} from "../../../controller/model/magasin/stock.model";
+import {Router} from "@angular/router";
+import {EntiteAdministrativeService} from "../../../controller/service/entite-administrative.service";
+
 
 @Component({
   selector: 'app-magasin',
@@ -10,21 +13,26 @@ import {Stock} from "../../../controller/model/magasin/stock.model";
   styleUrls: ['./magasin.component.css']
 })
 export class MagasinComponent implements OnInit {
+  entitesAdministratives = new Array<EntiteAdministrative>();
 
-  constructor(private magasinService: MagasinService) { }
+  constructor(private magasinService: MagasinService, private  router: Router, private entiteAdministrativeService: EntiteAdministrativeService) { }
 
   ngOnInit(): void {
     this.magasinService.findAll();
   }
+  public goToPage1(nomPage: string) {
+    this.router.navigate([`${nomPage}`]);
+  }
 
+  public findAllEntites(): Array<EntiteAdministrative> {
+    this.entitesAdministratives = this.entiteAdministrativeService.findAllEntites();
+    return this.entiteAdministrativeService.findAllEntites();
+  }
   public save() {
     this.magasinService.save();
   }
   public validateSave(): boolean {
     return this.magasinService.validateSave();
-  }
-  get magasins(): Array<Magasin> {
-    return this.magasinService.magasins;
   }
   get magasin(): Magasin {
     return this.magasinService.magasin;
@@ -35,30 +43,5 @@ export class MagasinComponent implements OnInit {
   get foundedMagasin(): Magasin {
     return this.magasinService.foundedMagasin;
   }
-  public findByReference(reference: string) {
-    if (reference == null ){
-      alert('please enter a reference of magasin');
-    } else {
-      this.magasinService.findByReference(reference);
-    }
-  }
-  public findStockByMagasin(reference: string) {
-    if (reference == null ) {
-      alert('please enter a reference of magasin');
-    } else {
-      this.magasinService.findStockByMagasin(reference);
-    }
-  }
-  get foundedStocks(): Stock[] {
-    return this.magasinService.foundedStocks;
-  }
-  get loadedStock(): Stock {
-    return this.magasinService.loadedStock;
-  }
-  public addProductToMagasin(refStock: string, refMag: string, refProd: string, quantiteMax: number, quantite: number) {
-    this.magasinService.addProductToMagasin(refStock, refMag, refProd, quantiteMax, quantite);
-  }
-  public removeProductFromMagasin(refMag: string, refProd: string, quantiteToRemove: number) {
-    this.magasinService.removeProductFromMagasin(refMag, refProd, quantiteToRemove);
-  }
+
 }

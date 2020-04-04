@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { EntiteAdministrative } from '../model/administration/entite-administrative.model';
-import { ExpressionBesion } from '../model/administration/expression-besion.model';
-import { Personnel } from '../model/administration/personnel.model';
-import { ExpressionBesionDetail } from '../model/administration/expression-besion-detail.model';
+import { EntiteAdministrative } from '../model/entite-administrative.model';
+
+import { Personnel } from '../model/personnel.model';
+import { ExpressionBesionDetail } from '../model/expression-besion-detail.model';
+import {ExpressionBesion} from "../model/expression-besion.model";
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,12 @@ export class AdministrationService {
     this._entiteAdministrative = value;
   }
 
-  public get expressionBesion(): ExpressionBesion {
+
+  get expressionBesion(): ExpressionBesion {
     return this._expressionBesion;
   }
-  public set expressionBesion(value: ExpressionBesion) {
+
+  set expressionBesion(value: ExpressionBesion) {
     this._expressionBesion = value;
   }
 

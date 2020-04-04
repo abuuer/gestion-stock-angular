@@ -1,1 +1,67 @@
-<p>livraison-detail works!</p>
+<div class="card">
+  <div class="card-header">Livraison Detail</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Produit</label>
+          <select name="produit" style="width: 100%; height: calc(1.5em + .75rem + 2px);"
+                  [(ngModel)]="livraisonDetail.produit.reference" (change)="getProduit($event)">
+            <option class="dropdown-item" disabled selected value="undefined">Selectionner un produit</option>
+            <option *ngFor="let p of produits" [ngValue]="p.reference">{{p.reference}} - {{p.libelle}}</option>
+          </select>
+        </div>
+      </div>
+      <!--value="{{foundedProduit.prixUnitaireTTC}}"-->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="input">Prix</label>
+          <input type="number" class="form-control" id="input"
+                 [(ngModel)]="livraisonDetail.produit.prixUnitaireTTC" [disabled]="true">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Quantité</label>
+          <input type="number" class="form-control" [(ngModel)]="livraisonDetail.qte">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Magasin</label>
+          <input type="text" class="form-control" [(ngModel)]="livraisonDetail.magasin.reference">
+        </div>
+      </div>
+    </div>
+    <button class="btn  btn-outline-danger btn-block" (click)="addLivraisonDetail()">Ajouter</button>
+    <br>
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-hover table-bordered table-striped">
+          <thead>
+          <tr>
+            <th class="text-success">Produit</th>
+            <th class="text-success">Quantité</th>
+            <th class="text-danger">Magasin</th>
+          </tr>
+
+          </thead>
+          <tbody>
+          <tr *ngFor="let ld of livraison.livraisonDetails">
+            <td>{{ld.produit.reference}}</td>
+            <td>{{ld.qte}}</td>
+            <td>{{ld.magasin.reference}}</td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">Total {{livraison.total}}</div>
+    </div>
+
+  </div>
+
+
+</div>

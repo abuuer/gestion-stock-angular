@@ -3,5 +3,6 @@ export class ExpressionBesion {
   public  etat : String ;
 
   constructor() {
+
   }
 }

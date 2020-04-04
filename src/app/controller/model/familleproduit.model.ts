@@ -1,6 +1,8 @@
 export class Familleproduit {
-  public libelle : String ;
+  public libelle : string ;
 
   constructor() {
+
+
   }
 }

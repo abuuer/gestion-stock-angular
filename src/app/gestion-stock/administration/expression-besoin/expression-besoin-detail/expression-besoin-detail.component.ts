@@ -79,7 +79,7 @@ export class ExpressionBesoinDetailComponent implements OnInit {
   public deleteByReference(expressionBesion : ExpressionBesoin){
     return this.administrationService.deleteByReference(expressionBesion);
   }
-  public showfindByRef(expressionBesoin : ExpressionBesoin){
+  public showfoundByRef(expressionBesoin : ExpressionBesoin){
     return this.administrationService.findByReference(expressionBesoin);
   }
   public findBydateExpressionBesoin(expressionBesoin : ExpressionBesoin) {
@@ -89,7 +89,7 @@ export class ExpressionBesoinDetailComponent implements OnInit {
     return this.administrationService.findByChef(expressionBesoin);
   }
   get foundedByREference(): ExpressionBesoin {
-    return this.administrationService.foundedByREference;
+    return this.administrationService.foundedByReference;
   }
 
   }

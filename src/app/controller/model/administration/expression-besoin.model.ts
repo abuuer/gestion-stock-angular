@@ -13,6 +13,6 @@ export class ExpressionBesoin {
   public chef = new Personnel ;
 
   constructor() {
-    this.etat = "li";
+
   }
 }

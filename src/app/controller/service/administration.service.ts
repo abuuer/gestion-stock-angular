@@ -17,23 +17,24 @@ export class AdministrationService {
   private _expressionBesoins :  Array<ExpressionBesoin>;
   private _expressionBesoinDetail : ExpressionBesoinDetail;
   private _personnel : Personnel;
+  private _personnels : Array<Personnel>;
   private _produit : Produit ;
   private _produits : Array<Produit> ;
   private _chef : Personnel ;
   private _chefs : Array<Personnel> ;
   private _entiteAdmins :  Array<EntiteAdministrative> ;
-  private _foundedByREference = new ExpressionBesoin ;
+  private _foundedByReference = new ExpressionBesoin ;
   private _url = "http://localhost:8090/stock-api/ExpressionBesoin";
 
   constructor(private http: HttpClient) {
   }
 
-  get foundedByREference(): ExpressionBesoin {
-    return this._foundedByREference;
+  get foundedByReference(): ExpressionBesoin {
+    return this._foundedByReference;
   }
 
-  set foundedByREference(value: ExpressionBesoin) {
-    this._foundedByREference = value;
+  set foundedByReference(value: ExpressionBesoin) {
+    this._foundedByReference = value;
   }
 
   public get entiteAdministrative(): EntiteAdministrative {
@@ -107,6 +108,17 @@ export class AdministrationService {
 
   set chef(value: Personnel) {
     this._chef = value;
+  }
+
+  get personnels(): Array<Personnel> {
+    if(this._personnels == null){
+      this._personnels = new Array<Personnel>();
+    }
+    return this._personnels;
+  }
+
+  set personnels(value: Array<Personnel>) {
+    this._personnels = value;
   }
 
   get entiteAdmins(): Array<EntiteAdministrative> {
@@ -191,38 +203,24 @@ export class AdministrationService {
         if(data > 0){
           this.expressionBesoin = null ;
           this.findAllExpressions();
-          console.log("saved success");
         }
-        console.log("data : " + data);
-        console.log("saved success");
       },error => {
         console.log(error);
-      }
-    )
+      })
     console.log(this.expressionBesoin);
   }
 
   addProd() {
     this.expressionBesoin.expressionBesoinDetails.push(this.cloneexp(this.expressionBesoinDetail));
+    this.expressionBesoin.etat = "nl";
     console.log(this.expressionBesoin);
-    /*  this.expressionBesoinDetail.produit.reference = this.produit.reference ;
-      this.expressionBesoin.chef.code = this.chef.code ;
-      this.expressionBesoin.entiteAdministrative.reference = this.entiteAdministrative.reference ;
-       /*
-          console.log("reference : " + this.expressionBesoin.reference);
-          console.log("reference : " + this.expressionBesoinDetail.reference);
-          console.log("expressionBesoinDetail : " + this.expressionBesoinDetail);
-          console.log("reference : " + this.expressionBesoinDetail.produit.reference);
-          console.log("listExpressionDeBesoinDetail length : " + this.expressionBesoin.expressionDeBesoinDetails.length);
-          console.log("code : " +this.expressionBesoin.chef.code);
-          console.log("reference : " +this.expressionBesoin.entiteAdmin.reference);*/
   }
 
   private cloneexp(expressionBesoinDetail: ExpressionBesoinDetail) : ExpressionBesoinDetail {
     let exp = new ExpressionBesoinDetail();
     exp.qte = expressionBesoinDetail.qte;
     exp.reference = expressionBesoinDetail.reference;
-    exp.produit = expressionBesoinDetail.produit;
+    exp.produit.reference = expressionBesoinDetail.produit.reference;
     console.log(exp);
     return exp ;
   }
@@ -253,7 +251,9 @@ export class AdministrationService {
     this.http.get<ExpressionBesoin>(this.url + "/reference/" + expressionBesoin.reference).subscribe(
       data=>{
         console.log(data);
-        this.foundedByREference = data ;
+        this.foundedByReference = data ;
+      },error => {
+        this.foundedByReference = null ;
       }
     )
   }

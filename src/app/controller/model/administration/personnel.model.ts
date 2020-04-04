@@ -1,3 +1,5 @@
+import { EntiteAdministrative } from './entite-administrative.model';
+
 export class Personnel {
   public code : String ;
   public nom : String ;
@@ -9,6 +11,7 @@ export class Personnel {
   public codeChef : String ;
   public points : number ;
   public dateEmbauche : Date ;
+  public entiteAdministrative : EntiteAdministrative ;
 
   constructor() {
   }

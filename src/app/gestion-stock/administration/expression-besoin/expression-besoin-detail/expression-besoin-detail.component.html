@@ -8,7 +8,7 @@
     <div class="row" >
       <div class="col-md-4" (click)="changeValue('Ajouter')" >
         <div class="card" style="height: 100px ; cursor: pointer">
-          <img src="../../../../assets/green.jpg" class="card-img-top" alt="...">
+          <img src="../../../../assets/warehouse2.jpg" class="card-img-top" alt="...">
           <div class="card-body" >
             <h5 class="card-title"  >Ajouter Nouveau Expression De Besoin</h5>
           </div>
@@ -17,7 +17,7 @@
 
       <div class="col-md-4" (click)="changeValue('Supprimer')" >
         <div class="card" style="height: 100px ; cursor: pointer" >
-          <img src="../../../../assets/red.jpg" class="card-img-top" alt="...">
+          <img src="../../../../assets/warehouse2.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title" >Supprimer Un Expression De Besoin</h5>
           </div>
@@ -198,7 +198,7 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr class="table-danger" *ngFor="let edb of expressionBesoins">
+                              <tr class="table-bordered" *ngFor="let edb of expressionBesoins">
                                 <th scope="row"></th>
                                 <td>{{edb.reference}}</td>
                                 <td>{{edb.etat}}</td>
@@ -216,7 +216,7 @@
                                 <input type="text"  class="form-control input-sm" maxlength="64"
                                        placeholder="Entrer une reference d'expression de besoin"
                                        [(ngModel)]="expressionBesoin.reference" />
-                                <button type="submit"  class="btn btn-primary btn-sm" (click)="showfindByRef(expressionBesoin)">Search</button>
+                                <button type="submit"  class="btn btn-primary btn-sm" (click)="showfoundByRef(expressionBesoin)">Search</button>
                               </div>
                             </div>
                           </div>

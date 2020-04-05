@@ -30,6 +30,14 @@ import { LivraisonDetailListeComponent } from './gestion-stock/produit/livraison
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { ProduitDialogComponent } from './gestion-stock/magasin/produit/produit-dialog/produit-dialog.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {EntiteAdministrative2Component} from "./gestion-stock/administration/entite-administrative2/entite-administrative2.component";
+import {EntiteAdministrative3Component} from "./gestion-stock/administration/entite-administrative3/entite-administrative3.component";
+import {EntiteAdministrative5Component} from "./gestion-stock/administration/entite-administrative5/entite-administrative5.component";
+import {EntiteAdministrative4Component} from "./gestion-stock/administration/entite-administrative4/entite-administrative4.component";
+import {Magasin2Component} from "./gestion-stock/magasin/magasin2/magasin2.component";
+import {Magasin5Component} from "./gestion-stock/magasin/magasin5/magasin5.component";
+import {Magasin4Component} from "./gestion-stock/magasin/magasin4/magasin4.component";
+import {Magasin3Component} from "./gestion-stock/magasin/magasin3/magasin3.component";
 
 
 @NgModule({
@@ -54,7 +62,15 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     LivraisonListeComponent,
     LivraisonNaveComponent,
     LivraisonDetailListeComponent,
-    ProduitDialogComponent
+    ProduitDialogComponent,
+    EntiteAdministrative2Component,
+    EntiteAdministrative3Component,
+    EntiteAdministrative4Component,
+    EntiteAdministrative5Component,
+    Magasin2Component,
+    Magasin3Component,
+    Magasin4Component,
+    Magasin5Component,
   ],
   imports: [
     BrowserModule,

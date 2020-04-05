@@ -18,6 +18,7 @@ export class EntiteAdministrative4Component implements OnInit {
   ngOnInit(): void {
     this.magasinService.findAll();
     this.administrationService.findAllChef();
+
   }
   get loadedEntite(): EntiteAdministrative {
     return this.entiteAdministrativeService.loadedEntite;

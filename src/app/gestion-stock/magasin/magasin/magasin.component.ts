@@ -4,6 +4,7 @@ import {Magasin} from "../../../controller/model/magasin/magasin.model";
 import {Stock} from "../../../controller/model/magasin/stock.model";
 import {Router} from "@angular/router";
 import {EntiteAdministrativeService} from "../../../controller/service/entite-administrative.service";
+import {EntiteAdministrative} from "../../../controller/model/administration/entite-administrative.model";
 
 
 

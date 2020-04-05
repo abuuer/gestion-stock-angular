@@ -11,6 +11,8 @@ export class FournisseurService {
   private _fournisseur: Fournisseur;
   private _fournisseurs: Array<Fournisseur>;
   private _fournisseurSearch=new Fournisseur();
+  private _fournisseursLike = new Array<Fournisseur>();
+  private _fournisseurLike = new Fournisseur();
 
   constructor(private http: HttpClient) { }
   get fournisseur(): Fournisseur {
@@ -43,6 +45,23 @@ export class FournisseurService {
 
   set fournisseurSearch(value: Fournisseur) {
     this._fournisseurSearch = value;
+  }
+
+
+  get fournisseurLike(): Fournisseur {
+    return this._fournisseurLike;
+  }
+
+  set fournisseurLike(value: Fournisseur) {
+    this._fournisseurLike = value;
+  }
+
+  get fournisseursLike(): Fournisseur[] {
+    return this._fournisseursLike;
+  }
+
+  set fournisseursLike(value: Fournisseur[]) {
+    this._fournisseursLike = value;
   }
 
   private clone(fournisseur: Fournisseur): Fournisseur {
@@ -82,6 +101,20 @@ public findByReference(ref: string): Fournisseur {
     );
     return this.fournisseurSearch;
 }
+
+public findByReferenceLike(ref: string): Array<Fournisseur> {
+   this.http.get<Array<Fournisseur>>('http://localhost:8090/Fournisseur-stock/fournisseur/reference/like/' + ref).subscribe(
+    data => {
+      if (data != null) {
+        this.fournisseursLike = data;
+      } else {
+        alert('ce fournisseur existe pas');
+      }
+    }
+   );
+   return this.fournisseursLike;
+}
+
   public findAll() {
     this.http.get<Array<Fournisseur>>('http://localhost:8090/Fournisseur-stock/fournisseur/').subscribe(
       data => {

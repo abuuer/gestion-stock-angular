@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+   <div class="col-md-12">
+  <div >
+    <h2> Listes des EntiteAdministratives</h2>
+    <table class="table table-dark table-hover table-striped table-bordered">
+      <thead >
+      <th style="width: 30%">Reference</th>
+      <th style="width: 30%">Nom</th>
+      <th style="width: 30%">Code Chef</th>
+      <th style="width: 10%">Action</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of entitiesAdministratives">
+        <td>{{c.reference}}</td>
+        <td>{{c.nom}}</td>
+        <td>{{c.chef.code}}</td>
+        <td><button type="button" class="btn btn-sm btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+  </div>
+</div>

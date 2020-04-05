@@ -1,15 +1,16 @@
+<div class="container">
 <div class="row">
-   <div class="col-md-4">
+   <div class="col-md-12">
   <h2 id="titreMag"> Creation Magasins</h2>
-<div class="card">
+<div class="card text-white bg-dark ">
 
   <div class="card-body">
 
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-        <label class="primaryLab">reference</label>
-        <input type="text" class="form-control" [(ngModel)]="magasin.reference" >
+        <label class="primaryLab">Reference</label>
+        <input style="background-color: #a1c0ef" type="text" class="form-control" [(ngModel)]="magasin.reference" >
         </div>
       </div>
 
@@ -18,8 +19,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-        <label class="primaryLab">nom</label>
-        <input type="text" class="form-control" [(ngModel)]="magasin.nom" >
+        <label class="primaryLab">Nom</label>
+        <input style="background-color: #a1c0ef" type="text" class="form-control" [(ngModel)]="magasin.nom" >
         </div>
       </div>
     </div>
@@ -27,8 +28,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-        <label class="primaryLab">nombre Max produits</label>
-        <input type="number" class="form-control" [(ngModel)]="magasin.nbrMAxProduit" >
+        <label class="primaryLab">Nombre Max produits</label>
+        <input style="background-color: #a1c0ef" type="number" class="form-control" [(ngModel)]="magasin.nbrMAxProduit" >
         </div>
       </div>
     </div>
@@ -36,188 +37,55 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-        <label class="primaryLab">nombre Max d'employes</label>
-        <input type="number" class="form-control" [(ngModel)]="magasin.nbrMaxEmploye" >
+        <label class="primaryLab">Nombre Max d'employes</label>
+        <input style="background-color: #a1c0ef" type="number" class="form-control" [(ngModel)]="magasin.nbrMaxEmploye" >
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <div class="form-group">
-        <label class="primaryLab">Reference de l'entite Administrative</label>
-          <input type="text" class="form-control" [(ngModel)]="magasin.refEntite">
-        </div>
+          <label class="primaryLab">Entite Administrative</label> <br>
+        <select style="background-color: #a1c0ef" class="btn btn-block btn-outline-light" name="entiteAdmoinistrative"  [(ngModel)]="magasin.refEntite" (click)="findAllEntites()">
+          <option selected="selected" disabled>Choose your entite Administrative</option>
+          <option *ngFor="let entite of entitesAdministratives" [ngValue]="entite.reference" >
+            name : {{entite.nom}} ---- reference : {{ entite.reference }} ---- chef : {{entite.chef.code}}
+          </option>
+        </select>
       </div>
     </div>
 
   </div>
   <div class="card-fouter">
-    <button class="btn btn-outline-dark btn-block" (click)="save()" [disabled]="!validateSave()">save</button>
+    <button class="btn btn-outline-info btn-block" (click)="save()" [disabled]="!validateSave()">save</button>
   </div>
 </div>
 </div>
-   <div class="col-md-4">
-  <div >
-  <h3> Listes des Magasins</h3>
-      <table class="table table-dark table-hover table-striped table-bordered">
-        <thead >
-        <th class="col-md-3">reference</th>
-        <th class="col-md-3">nom</th>
-        <th class="col-md-1">nbrMaxProduit</th>
-        <th class="col-md-1">nbrMaxEmploye</th>
-        <th class="col-md-3">Ref de l'entite</th>
-        <th class="col-md-1">Action</th>
-        </thead>
-        <tbody>
-        <tr *ngFor="let c of magasins">
-          <td>{{c.reference}}</td>
-          <td>{{c.nom}}</td>
-          <td>{{c.nbrMAxProduit}}</td>
-          <td>{{c.nbrMaxEmploye}}</td>
-          <td>{{c.refEntite}}</td>
-          <td><button type="button" class="btn btn-sm btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
-        </tr>
-        </tbody>
-      </table>
-
 </div>
-</div>
-</div> <br> <br>
+ <br> <br>
 <hr>
 <div class="row">
-  <div class="col-md-6">
-    <div class="row">
-    <div class="form-group">
-    <h4 style="color: cornflowerblue">find Magasin by reference</h4>
-    <input type="text" class="form-control" [(ngModel)]="magasin.refMagFind">
-      <button class="btn btn-block btn-outline-dark" (click)="findByReference(magasin.refMagFind)" >serch</button>
-    </div>
-    </div>
-    <br>
-    <hr>
-    <div class="row">
-      <h4 style="color: cadetblue">Founded Magasin</h4>
-      <table class="table table-bordered table-striped table-hover">
-        <thead>
-        <th>reference</th>
-        <th>nom</th>
-        <th>EnteteAdministrative</th>
-        </thead>
-        <tbody>
+  <div class="col-md-12">
+    <div class="card" style="background-color: #0e2c37">
+      <div class="card-header"><h1 style="color: #766866; padding-left: 10%">Gestion Des Magasins </h1></div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
           <tr>
-            <td>{{foundedMagasin.reference}}</td>
-            <td>{{foundedMagasin.nom}}</td>
-            <td>{{foundedMagasin.refEntite}}</td>
+            <td><button class="btn btn-outline-info btn-block" (click)="goToPage1('Magasin2')">List of Magasins</button></td>
+            <td><button class="btn btn-outline-info btn-block" (click)="goToPage1('Magasin3')">find Magasin</button></td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-header">Ajouter un produit dans un Magasin</div>
-    <div class="card-body">
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="primaryLab">reference de stock</label>
-            <input type="text" class="form-control" [(ngModel)]="loadedStock.reference" >
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="primaryLab">reference de magasin</label>
-            <input type="text" class="form-control" [(ngModel)]="loadedStock.magasin.reference" >
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="primaryLab">reference de produit</label>
-            <input type="text" class="form-control" [(ngModel)]="loadedStock.produit.reference" >
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="primaryLab">quantite Max de prod in Magasin</label>
-            <input type="number" class="form-control" [(ngModel)]="loadedStock.quantiteMax" >
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group">
-            <label class="primaryLab">quantite shouaitez ajoutée</label>
-            <input type="number" class="form-control" [(ngModel)]="loadedStock.qte" >
-          </div>
-        </div>
-      </div>
-
-    </div>
-      <div class="card-fouter">
-        <button class="btn btn-block btn-outline-info" (click)="addProductToMagasin(loadedStock.reference, loadedStock.magasin.reference, loadedStock.produit.reference, loadedStock.quantiteMax, loadedStock.qte)">valider</button>
+          <tr>
+            <td><button class="btn btn-outline-info btn-block" (click)="goToPage1('Magasin4')">find Stockes of Magasin</button></td>
+            <td><button class="btn btn-outline-info btn-block" (click)="goToPage1('Magasin5')">Add Product To Magasin</button></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-  </div>
-</div> <br> <br>
-<hr>
-<div class="row">
-  <div class="col-md-4">
-    <div class="form-group">
-      <h4 style="color: cornflowerblue">find Stocks by reference of Magasin</h4>
-      <input type="text" class="form-control" [(ngModel)]="magasin.refMagFindStockes">
-      <button class="btn btn-block btn-outline-dark" (click)="findStockByMagasin(magasin.refMagFindStockes)" >serch</button>
-    </div>
- </div>
-  <div class="col-md-8">
 
-    <div >
-      <h3>stockes of founded Magasin</h3>
-      <table class="table table-dark table-hover table-striped table-bordered">
-        <thead >
-        <th class="col-md-3">ref Magasin</th>
-        <th class="col-md-3">ref Stock</th>
-        <th class="col-md-1">ref Prod</th>
-        <th class="col-md-1">quantite MaxProd</th>
-        <th class="col-md-3">quantiteProd</th>
-        <th class="col-md-1">Action(remove/add quantity)</th>
-        </thead>
-        <tbody>
-        <tr *ngFor="let c of foundedStocks">
-          <td>{{c.magasin.reference}}</td>
-          <td>{{c.reference}}</td>
-          <td>{{c.produit.reference}}</td>
-          <td>{{c.quantiteMax}}</td>
-          <td>{{c.qte}}</td>
-          <td>
-            <div class="row">
-              <div class="col-md-8">
-                <div class="form-group">
-            <input type="number" class="form-control" [(ngModel)]="c.quantiteToRemoveOrToAdd">
-                </div>
-              </div>
-              <div class="col-md-4">
-                <button class="btn btn-danger fa fa-minus-square" (click)="removeProductFromMagasin(c.magasin.reference, c.produit.reference, c.quantiteToRemoveOrToAdd)"></button>
-                <button class="btn btn-danger fa fa-plus-square" (click)="addProductToMagasin(c.reference, c.magasin.reference, c.produit.reference, c.quantiteMax, c.quantiteToRemoveOrToAdd)"></button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-
-    </div>
   </div>
 </div>
+</div>
+
+

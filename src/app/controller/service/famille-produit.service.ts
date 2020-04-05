@@ -12,6 +12,8 @@ export class FamilleProduitService {
   private _familleProduit: Familleproduit;
   private _familleProduits: Array<Familleproduit>;
   private _produit: Produit;
+  private _produitsByLibelle = new Array<Produit>();
+  private _produitByLibelle = new Produit();
 
   get familleProduit(): Familleproduit {
     if (this._familleProduit == null) {
@@ -48,6 +50,24 @@ export class FamilleProduitService {
     this._produit = value;
   }
 
+
+  get produitsByLibelle(): Produit[] {
+    return this._produitsByLibelle;
+  }
+
+  set produitsByLibelle(value: Produit[]) {
+    this._produitsByLibelle = value;
+  }
+
+
+  get produitByLibelle(): Produit {
+    return this._produitByLibelle;
+  }
+
+  set produitByLibelle(value: Produit) {
+    this._produitByLibelle = value;
+  }
+
   private clone(produit: Produit): Produit {
     const clone = new Produit();
     clone.reference = produit.reference;
@@ -59,6 +79,8 @@ export class FamilleProduitService {
   }
 
   public addProduit() {
+    this.produit.prixUnitaireTTC = this.produit.prixUnitaireHT * ((this.produit.tauxTVA / 100) + 1);
+    this.produit.tva = (this.produit.prixUnitaireHT * this.produit.tauxTVA) / 100;
     this.familleProduit.produits.push(this.clone(this.produit));
     this.produit = null;
   }
@@ -81,6 +103,15 @@ export class FamilleProduitService {
     }
     );
   }
+
+  public findByProduitLibelle(libelle: string): Array<Produit> {
+    this.http.get<Array<Produit>>('http://localhost:8090/produit-api/produit/familleProduit/libelle/' + libelle).subscribe(
+      data => {
+        this.produitsByLibelle = data;
+      }
+    );
+    return this.produitsByLibelle;
+}
 
   public findAll() {
     this.http.get<Array<Familleproduit>>('http://localhost:8090/FamilleProduit-stock/familleProduit/').subscribe(

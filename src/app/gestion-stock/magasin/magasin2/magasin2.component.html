@@ -1,0 +1,38 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <div >
+      <h3> Listes des Magasins</h3>
+      <table class="table table-dark table-hover table-striped table-bordered">
+        <thead >
+        <th style="width: 10%">reference</th>
+        <th style="width: 10%">nom</th>
+        <th style="width: 10%">nbr Max de produit</th>
+        <th style="width: 10%">nbr Max d'employe</th>
+        <th style="width: 50%">reference  de l'entite Administrative</th>
+        <th style="width: 10%">action</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of magasins">
+          <td>{{c.reference}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.nbrMAxProduit}}</td>
+          <td>{{c.nbrMaxEmploye}}</td>
+          <td>
+            <div class="row">
+              <div class="col-md-2">{{c.refEntite}}</div>
+              <div class="col-md-8">
+                <input class="btn btn-sm"  type="text" [(ngModel)]="c.refEntiteToSet" [(ngModel)]="c.refEntite" >
+              </div>
+              <div class="col-md-2"><button class="fa fa-check" (click)="setEntiteAdministrative(c)"></button></div>
+            </div>
+          </td>
+          <td><button type="button" class="btn btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+</div>

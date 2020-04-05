@@ -11,6 +11,8 @@ export class EntiteAdministrative {
   public expressionBesoins = Array<ExpressionBesoin>() ;
   public chef = new Personnel() ;
   public refEntiteTofind: string;
+  public refMagToAddEmpl: string;
+  public refEmplToAddInMag: string;
 
   constructor() {}
 

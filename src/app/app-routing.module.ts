@@ -14,6 +14,14 @@ import {LivraisonListeComponent} from "./gestion-stock/produit/livraison/livrais
 import {LivraisonDetail} from "./controller/model/produit/livraison-detail.model";
 import {LivraisonDetailComponent} from "./gestion-stock/produit/livraison/livraison-detail/livraison-detail.component";
 import {FamilleProduitComponent} from "./gestion-stock/produit/famille-produit/famille-produit.component";
+import {Magasin2Component} from "./gestion-stock/magasin/magasin2/magasin2.component";
+import {Magasin3Component} from "./gestion-stock/magasin/magasin3/magasin3.component";
+import {Magasin4Component} from "./gestion-stock/magasin/magasin4/magasin4.component";
+import {Magasin5Component} from "./gestion-stock/magasin/magasin5/magasin5.component";
+import {EntiteAdministrative2Component} from "./gestion-stock/administration/entite-administrative2/entite-administrative2.component";
+import {EntiteAdministrative3Component} from "./gestion-stock/administration/entite-administrative3/entite-administrative3.component";
+import {EntiteAdministrative4Component} from "./gestion-stock/administration/entite-administrative4/entite-administrative4.component";
+
 
 const routes: Routes = [
   {path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent},
@@ -28,6 +36,25 @@ const routes: Routes = [
   {path: 'Produit/ajouterProduit', component: ProduitCreateComponent},
   {path: 'Livraison/ajouterLivraison', component: LivraisonComponent},
   {path: 'FamilleProduit' , component: FamilleProduitComponent}
+  { path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent },
+  { path: 'ExpressionDeBesoinDetail', component: ExpressionBesoinDetailComponent },
+  { path: 'Personnel', component: PersonnelComponent },
+  { path: 'EntiteAdministrative', component: EntiteAdministrativeComponent },
+  { path: 'Produit', component: ProduitComponent },
+  {path: 'FamilleProduit', component: FamilleProduitComponent},
+  { path: 'Fournisseur', component: FournisseurComponent },
+  { path: 'Livraison', component: LivraisonComponent },
+  { path: 'Stock', component: StockComponent },
+  { path: 'Magasin', component: MagasinComponent },
+  { path: 'Magasin2', component: Magasin2Component },
+  { path: 'Magasin3', component: Magasin3Component },
+  { path: 'Magasin4', component: Magasin4Component },
+  { path: 'Magasin5', component: Magasin5Component },
+  { path: 'EntiteAdministrative2', component: EntiteAdministrative2Component },
+  { path: 'EntiteAdministrative3', component: EntiteAdministrative3Component },
+  { path: 'EntiteAdministrative4', component: EntiteAdministrative4Component },
+  // dafault rout :
+  { path: '', redirectTo: 'ExpressionDeBesoinDetail', pathMatch: 'full'}
 
 ];
 //A typical Angular Route has two properties:

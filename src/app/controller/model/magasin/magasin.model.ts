@@ -13,9 +13,10 @@ export class Magasin {
   public refEntite: string ;
   public employes = new Array<Personnel>();
   public stocks = new Array<Stock>();
-  public entiteAdministrative: EntiteAdministrative;
+  public entiteAdministrative = new EntiteAdministrative();
   public refMagFind: string;
   public refMagFindStockes: string;
+  public refEntiteToSet: string;
 
   constructor() {
   }

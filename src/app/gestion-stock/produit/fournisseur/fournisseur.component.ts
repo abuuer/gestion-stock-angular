@@ -42,5 +42,14 @@ export class FournisseurComponent implements OnInit {
     return this.fournisseurService.findByReference(ref);
   }
 
+  get fournisseursLike(): Fournisseur[] {
+    return this.fournisseurService.fournisseursLike;
+  }
 
+  get fournisseurLike(): Fournisseur {
+    return this.fournisseurService.fournisseurLike;
+  }
+  public findByReferenceLike(ref: string): Array<Fournisseur> {
+    return this.fournisseurService.findByReferenceLike(ref);
+  }
 }

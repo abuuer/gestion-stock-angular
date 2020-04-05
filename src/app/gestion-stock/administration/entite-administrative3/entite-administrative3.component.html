@@ -1,0 +1,54 @@
+<div class="container">
+
+
+        <div class="row">
+          <div class="col-md-12">
+          <div class="form-group">
+            <h4 style="color: cornflowerblue">find entiteAd by reference</h4>
+            <input type="text" placeholder="entrez la reference" class="form-control" [(ngModel)]="loadedEntite.refEntiteTofind">
+            <button class="btn btn-block btn-outline-dark" (click)="findByReference(loadedEntite.refEntiteTofind)">search</button>
+          </div>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+          <h5 style="color: aqua">Founded Entite Administrative</h5>
+          <table class="table table-bordered table-striped table-hover table-active">
+            <thead>
+            <th>Reference</th>
+            <th>Nom</th>
+            <th>Code Chef</th>
+
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{loadedEntite.reference}}</td>
+              <td>{{loadedEntite.nom}}</td>
+              <td>{{loadedEntite.chef.code}}</td>
+
+            </tr>
+            </tbody>
+          </table>
+
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+              <th style="width: 50%; color: blue">reference du Magasin</th>
+              <th style="width: 50%; color: blue">nom du magasin</th>
+              <th>action</th>
+              </thead>
+              <tbody>
+              <tr *ngFor="let magasin of loadedEntite.magasins">
+                <td>{{magasin.reference}}</td>
+                <td>{{magasin.nom}}</td>
+                <td><button class="btn btn-danger fa fa-trash" (click)="deleteByReference(magasin); findByReference(loadedEntite.refEntiteTofind)"></button></td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+
+</div>

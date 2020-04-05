@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {EntiteAdministrativeService} from "./entite-administrative.service";
 import {Magasin} from "../model/magasin/magasin.model";
 import {Stock} from "../model/magasin/stock.model";
+import {EntiteAdministrative} from "../model/administration/entite-administrative.model";
 
 
 @Injectable({
@@ -20,12 +21,14 @@ export class MagasinService {
   constructor(private http: HttpClient, private entiteAdministrativeService: EntiteAdministrativeService) { }
 
   public save() {
+    console.log('ref dial lentite :********   ' + this.magasin.refEntite);
     this.http.post<number>(this.url, this.magasin).subscribe(
       data => {
         if (data > 0) {
           this.magasins.push(this.cloneMagasin(this.magasin));
           this.magasin = null;
           console.log('success mag saved');
+          alert('success magasin saved');
         } else {
           console.log('the reference of magasin existe alredy or the ref of entiteAd is not valid');
           alert('the reference of magasin existe alredy or the ref of entiteAd is not valid');
@@ -39,9 +42,9 @@ export class MagasinService {
 
   }
   public deleteByReferenceFromView(magasin: Magasin){
-    const index = this._magasins.findIndex(c => c.reference === magasin.reference);
+    const index = this.magasins.findIndex(c => c.reference === magasin.reference);
     if (index !== 1 ) {
-      this._magasins.splice(index, 1);
+      this.magasins.splice(index, 1);
     }
   }
   public deleteByReference(magasin: Magasin) {
@@ -98,11 +101,11 @@ export class MagasinService {
           this.foundedStocks = data ;
           console.log('success stocks founded');
         } else {
-          alert('stock of this magasin is Empty');
+          alert('stock of this magasin is Empty or the magasin is not exist');
         }
       }, error => {
-        console.log('stock not founded');
-        alert('stock not founded');
+        console.log('the reference is not valid');
+        alert('the reference is not valid');
       }
     );
   }
@@ -136,6 +139,21 @@ export class MagasinService {
       }, error => {
         console.log('error ');
         alert('error ');
+      }
+    );
+  }
+  public setEntiteAdministrative(magasin: Magasin) {
+    this.http.put(this.url + 'setEntite/refEntite/' + magasin.refEntiteToSet + '/refMagasin/' + magasin.reference , magasin).subscribe(
+      data => {
+        if (data > 0) {
+          console.log('success magasin updated');
+          alert('success magasin updated');
+        } else {
+          console.log('the reference is not valid');
+          alert('the reference is not valid');
+        }
+      }, error => {
+        console.log('error ma updatach l entite dial lmagasin ');
       }
     );
   }
@@ -194,11 +212,16 @@ export class MagasinService {
     const myClone = new Magasin();
     myClone.reference = _mmagasin.reference;
     myClone.nom = _mmagasin.nom;
+    myClone.refEntite = _mmagasin.refEntite;
     myClone.nbrMAxProduit = _mmagasin.nbrMAxProduit;
     myClone.nbrMaxEmploye = _mmagasin.nbrMaxEmploye;
+    myClone.entiteAdministrative = _mmagasin.entiteAdministrative;
     myClone.nbrProduit = _mmagasin.nbrProduit;
     myClone.nbremploye = _mmagasin.nbremploye;
-    myClone.refEntite = _mmagasin.refEntite;
+    myClone.employes = _mmagasin.employes;
+    myClone.stocks = _mmagasin.stocks;
+
+
     return myClone;
   }
 

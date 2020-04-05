@@ -80,7 +80,7 @@ export class FamilleProduitService {
 
   public addProduit() {
     this.produit.prixUnitaireTTC = this.produit.prixUnitaireHT * ((this.produit.tauxTVA / 100) + 1);
-    this.produit.tva = (this.produit.prixUnitaireHT * this.produit.tauxTVA) / 100;
+    this.produit.tauxTVA= (this.produit.prixUnitaireHT * this.produit.tauxTVA) / 100;
     this.familleProduit.produits.push(this.clone(this.produit));
     this.produit = null;
   }

@@ -21,6 +21,7 @@ import {Magasin5Component} from "./gestion-stock/magasin/magasin5/magasin5.compo
 import {EntiteAdministrative2Component} from "./gestion-stock/administration/entite-administrative2/entite-administrative2.component";
 import {EntiteAdministrative3Component} from "./gestion-stock/administration/entite-administrative3/entite-administrative3.component";
 import {EntiteAdministrative4Component} from "./gestion-stock/administration/entite-administrative4/entite-administrative4.component";
+import {ExpressionBesoinDetailComponent} from "./gestion-stock/administration/expression-besoin/expression-besoin-detail/expression-besoin-detail.component";
 
 
 const routes: Routes = [
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path: 'Produit-list', component: ProduitListeComponent},
   {path: 'Produit/ajouterProduit', component: ProduitCreateComponent},
   {path: 'Livraison/ajouterLivraison', component: LivraisonComponent},
-  {path: 'FamilleProduit' , component: FamilleProduitComponent}
+  {path: 'FamilleProduit' , component: FamilleProduitComponent},
   { path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent },
   { path: 'ExpressionDeBesoinDetail', component: ExpressionBesoinDetailComponent },
   { path: 'Personnel', component: PersonnelComponent },

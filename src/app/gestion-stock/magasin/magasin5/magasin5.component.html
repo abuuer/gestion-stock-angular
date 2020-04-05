@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
+    <div class="card text-white bg-info mb-3" >
       <div class="card-header">Ajouter un produit dans un Magasin</div>
       <div class="card-body">
 
@@ -8,7 +8,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="primaryLab">reference de stock</label>
-              <input type="text" placeholder="entrez un reference" class="form-control" [(ngModel)]="loadedStock.reference" >
+              <input style="background-color: #a1c0ef" type="text" placeholder="entrez un reference" class="form-control" [(ngModel)]="loadedStock.reference" >
             </div>
           </div>
 
@@ -17,8 +17,13 @@
         <div class="row">
           <div class="col-md-12">
             <div class="form-group">
-              <label class="primaryLab">reference de magasin</label>
-              <input type="text" class="form-control" [(ngModel)]="loadedStock.magasin.reference" >
+              <label class="primaryLab">Magasin</label>
+              <select style="background-color: #a1c0ef" class="btn btn-block btn-outline-light" [(ngModel)]="loadedStock.magasin.reference" >
+                <option value="null" selected disabled>choose magasin</option>
+                <option *ngFor="let m of magasins" [ngValue]="m.reference">
+                  reference: {{m.reference}} --- nom: {{m.nom}} --- refEntite: {{m.refEntite}}
+                </option>
+              </select>
             </div>
           </div>
         </div>
@@ -27,7 +32,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="primaryLab">reference de produit</label>
-              <input type="text" class="form-control" [(ngModel)]="loadedStock.produit.reference" >
+              <input style="background-color: #a1c0ef" type="text" class="form-control" [(ngModel)]="loadedStock.produit.reference" >
             </div>
           </div>
         </div>
@@ -36,7 +41,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="primaryLab">quantite Max de prod in Magasin</label>
-              <input type="number" class="form-control" [(ngModel)]="loadedStock.quantiteMax" >
+              <input style="background-color: #a1c0ef" type="number" class="form-control" [(ngModel)]="loadedStock.quantiteMax" >
             </div>
           </div>
         </div>
@@ -45,7 +50,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label class="primaryLab">quantite shouaitez ajoutée</label>
-              <input type="number" class="form-control" [(ngModel)]="loadedStock.qte" >
+              <input  style="background-color: #a1c0ef" type="number" class="form-control" [(ngModel)]="loadedStock.qte" >
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ export class Magasin {
   public entiteAdministrative = new EntiteAdministrative();
   public refMagFind: string;
   public refMagFindStockes: string;
+  public refEntiteToSet: string;
 
   constructor() {
   }

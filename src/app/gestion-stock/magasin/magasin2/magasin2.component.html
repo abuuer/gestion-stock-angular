@@ -5,11 +5,11 @@
       <h3> Listes des Magasins</h3>
       <table class="table table-dark table-hover table-striped table-bordered">
         <thead >
-        <th style="width: 20%">reference</th>
-        <th style="width: 20%">nom</th>
+        <th style="width: 10%">reference</th>
+        <th style="width: 10%">nom</th>
         <th style="width: 10%">nbr Max de produit</th>
         <th style="width: 10%">nbr Max d'employe</th>
-        <th style="width: 30%">reference  de l'entite Administrative</th>
+        <th style="width: 50%">reference  de l'entite Administrative</th>
         <th style="width: 10%">action</th>
         </thead>
         <tbody>
@@ -18,8 +18,16 @@
           <td>{{c.nom}}</td>
           <td>{{c.nbrMAxProduit}}</td>
           <td>{{c.nbrMaxEmploye}}</td>
-          <td>{{c.refEntite}}</td>
-          <td><button type="button" class="btn btn-sm btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
+          <td>
+            <div class="row">
+              <div class="col-md-2">{{c.refEntite}}</div>
+              <div class="col-md-8">
+                <input class="btn btn-sm"  type="text" [(ngModel)]="c.refEntiteToSet" [(ngModel)]="c.refEntite" >
+              </div>
+              <div class="col-md-2"><button class="fa fa-check" (click)="setEntiteAdministrative(c)"></button></div>
+            </div>
+          </td>
+          <td><button type="button" class="btn btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
         </tr>
         </tbody>
       </table>

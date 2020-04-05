@@ -22,6 +22,11 @@ import { Magasin2Component } from './gestion-stock/magasin/magasin2/magasin2.com
 import { Magasin3Component } from './gestion-stock/magasin/magasin3/magasin3.component';
 import { Magasin4Component } from './gestion-stock/magasin/magasin4/magasin4.component';
 import { Magasin5Component } from './gestion-stock/magasin/magasin5/magasin5.component';
+import {EntiteAdministrative2Component} from "./gestion-stock/administration/entite-administrative2/entite-administrative2.component";
+import { EntiteAdministrative3Component } from './gestion-stock/administration/entite-administrative3/entite-administrative3.component';
+import { EntiteAdministrative4Component } from './gestion-stock/administration/entite-administrative4/entite-administrative4.component';
+import { EntiteAdministrative5Component } from './gestion-stock/administration/entite-administrative5/entite-administrative5.component';
+
 
 
 @NgModule({
@@ -42,7 +47,11 @@ import { Magasin5Component } from './gestion-stock/magasin/magasin5/magasin5.com
     Magasin2Component,
     Magasin3Component,
     Magasin4Component,
-    Magasin5Component
+    Magasin5Component,
+    EntiteAdministrative2Component,
+    EntiteAdministrative3Component,
+    EntiteAdministrative4Component,
+    EntiteAdministrative5Component
   ],
   imports: [
     BrowserModule,

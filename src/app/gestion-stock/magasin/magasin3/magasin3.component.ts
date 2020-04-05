@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MagasinService} from "../../../controller/service/magasin.service";
 import {Magasin} from "../../../controller/model/magasin/magasin.model";
 import {Stock} from "../../../controller/model/magasin/stock.model";
+import {EntiteAdministrativeService} from "../../../controller/service/entite-administrative.service";
 
 @Component({
   selector: 'app-magasin3',
@@ -10,7 +11,7 @@ import {Stock} from "../../../controller/model/magasin/stock.model";
 })
 export class Magasin3Component implements OnInit {
 
-  constructor(private magasinService: MagasinService) { }
+  constructor(private magasinService: MagasinService, private entiteAdministrativeService: EntiteAdministrativeService) { }
 
   ngOnInit(): void {
     this.magasinService.findAll();
@@ -33,4 +34,7 @@ export class Magasin3Component implements OnInit {
     }
   }
 
+  public removeEmployeFromMagasin(codeEmploye: string, refMagasin: string) {
+    this.entiteAdministrativeService.removeEmployeFromMagasin(codeEmploye, refMagasin);
+  }
 }

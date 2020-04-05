@@ -26,6 +26,14 @@ export class Magasin5Component implements OnInit {
     return this.magasinService.loadedStock;
   }
   public addProductToMagasin(refStock: string, refMag: string, refProd: string, quantiteMax: number, quantite: number) {
-    this.magasinService.addProductToMagasin(refStock, refMag, refProd, quantiteMax, quantite);
+    if (refStock == null  || refMag == null || refProd == null || quantiteMax == null || quantite == null) {
+      alert('please fill in the informations');
+    } else {
+      this.magasinService.addProductToMagasin(refStock, refMag, refProd, quantiteMax, quantite);
+    }
+
+  }
+  get magasins(): Array<Magasin> {
+    return this.magasinService.magasins;
   }
 }

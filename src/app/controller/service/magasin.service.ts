@@ -41,9 +41,9 @@ export class MagasinService {
 
   }
   public deleteByReferenceFromView(magasin: Magasin){
-    const index = this._magasins.findIndex(c => c.reference === magasin.reference);
+    const index = this.magasins.findIndex(c => c.reference === magasin.reference);
     if (index !== 1 ) {
-      this._magasins.splice(index, 1);
+      this.magasins.splice(index, 1);
     }
   }
   public deleteByReference(magasin: Magasin) {
@@ -138,6 +138,21 @@ export class MagasinService {
       }, error => {
         console.log('error ');
         alert('error ');
+      }
+    );
+  }
+  public setEntiteAdministrative(magasin: Magasin) {
+    this.http.put(this.url + 'setEntite/refEntite/' + magasin.refEntiteToSet + '/refMagasin/' + magasin.reference , magasin).subscribe(
+      data => {
+        if (data > 0) {
+          console.log('success magasin updated');
+          alert('success magasin updated');
+        } else {
+          console.log('the reference is not valid');
+          alert('the reference is not valid');
+        }
+      }, error => {
+        console.log('error ma updatach l entite dial lmagasin ');
       }
     );
   }

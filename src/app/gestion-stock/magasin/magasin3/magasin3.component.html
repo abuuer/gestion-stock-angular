@@ -44,11 +44,13 @@
           <thead>
           <th style="width: 50%; color: blue">nom employe</th>
           <th style="width: 50%; color: blue">code employe</th>
+          <th>action</th>
           </thead>
           <tbody>
           <tr *ngFor="let employe of foundedMagasin.employes">
             <td>{{employe.nom}}</td>
             <td>{{employe.code}}</td>
+            <td><button class="fa fa-trash" (click)="removeEmployeFromMagasin(employe.code, foundedMagasin.reference)"></button></td>
           </tr>
           </tbody>
         </table>

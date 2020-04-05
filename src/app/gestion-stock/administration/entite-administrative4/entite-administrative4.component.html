@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-12">
+        <div class="card text-primary bg-transparent">
+          <div class="card-header">Ajouter un employe dans un Magasin</div>
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="primaryLab">Magasin</label>
+                  <select style="background-color: #a1c0ef" class="btn btn-block btn-outline-light" name="magasin"  [(ngModel)]="loadedEntite.refMagToAddEmpl" >
+                    <option disabled selected>Choose magasin </option>
+                    <option *ngFor="let m of magasins" [ngValue]="m.reference" >
+                      name : {{m.nom}} ---- reference : {{ m.reference }} ---- Entite : {{m.refEntite}}
+                    </option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="primaryLab">Code de l'employe</label>
+                  <input style="background-color: #a1c0ef" type="text" class="form-control" [(ngModel)]="loadedEntite.refEmplToAddInMag">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-fouter">
+            <button class="btn btn-block btn-dark" (click)="addEmployeToMagasin(loadedEntite.refEmplToAddInMag, loadedEntite.refMagToAddEmpl)">valider</button>
+          </div>
+
+        </div>
+      </div>
+
+  </div>
+</div>

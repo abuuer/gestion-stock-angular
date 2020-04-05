@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Magasin} from "../../../controller/model/magasin/magasin.model";
 import {MagasinService} from "../../../controller/service/magasin.service";
-import {EntiteAdministrative} from "../../../controller/model/administration/entite-administrative.model";
+import {Magasin} from "../../../controller/model/magasin/magasin.model";
 import {Stock} from "../../../controller/model/magasin/stock.model";
+
 
 @Component({
   selector: 'app-magasin',

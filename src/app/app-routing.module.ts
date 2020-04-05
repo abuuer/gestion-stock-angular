@@ -11,8 +11,9 @@ import {MagasinComponent} from "./gestion-stock/magasin/magasin/magasin.componen
 import {ProduitListeComponent} from "./gestion-stock/magasin/produit/produit-liste/produit-liste.component";
 import {ProduitCreateComponent} from "./gestion-stock/magasin/produit/produit-create/produit-create.component";
 import {LivraisonListeComponent} from "./gestion-stock/produit/livraison/livraison-liste/livraison-liste.component";
-import {LivraisonDetail} from "./controller/model/livraison-detail.model";
+import {LivraisonDetail} from "./controller/model/produit/livraison-detail.model";
 import {LivraisonDetailComponent} from "./gestion-stock/produit/livraison/livraison-detail/livraison-detail.component";
+import {FamilleProduitComponent} from "./gestion-stock/produit/famille-produit/famille-produit.component";
 
 const routes: Routes = [
   {path: 'ExpressionDeBesoin', component: ExpressionBesoinComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path: 'Magasin', component: MagasinComponent},
   {path: 'Produit-list', component: ProduitListeComponent},
   {path: 'Produit/ajouterProduit', component: ProduitCreateComponent},
-  {path: 'Livraison/ajouterLivraison', component: LivraisonComponent}
+  {path: 'Livraison/ajouterLivraison', component: LivraisonComponent},
+  {path: 'FamilleProduit' , component: FamilleProduitComponent}
 
 ];
 //A typical Angular Route has two properties:

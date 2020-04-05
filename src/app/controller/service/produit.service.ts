@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Produit} from "../model/produit.model";
+import {Produit} from "../model/magasin/produit.model";
 import {HttpClient} from "@angular/common/http";
-import {Familleproduit} from "../model/familleproduit.model";
+import {Familleproduit} from "../model/produit/familleproduit.model";
+import {LivraisonDetailListeComponent} from "../../gestion-stock/produit/livraison/livraison-liste/livraison-detail-liste/livraison-detail-liste.component";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ProduitDialogComponent} from "../../gestion-stock/magasin/produit/produit-dialog/produit-dialog.component";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +16,7 @@ export class ProduitService {
   private _familleProduit: Familleproduit;
   private url = 'http://localhost:8090/produit-api/produit/';
   private _foundedProduit: Produit;
+
 
   constructor(private http: HttpClient) {
   }
@@ -74,9 +78,9 @@ export class ProduitService {
     this.http.post<number>(this.url, this.produit).subscribe(
       data => {
         if (data > 0) {
-
-          this.produits.push(this.clone(this.produit))
+          this.produits.push(this.clone(this.produit));
           this.produit = null;
+
           console.log("ha data " + data);
         }
 
@@ -130,22 +134,35 @@ export class ProduitService {
 
 
   findByReference(reference: string): Produit {
-    console.log("Lien : " +this.url + 'reference/' + reference);
+    console.log("Lien : " + this.url + 'reference/' + reference);
     console.log("ha refrence f service :" + reference);
     this.http.get<Produit>(this.url + 'reference/' + reference).subscribe(
       data => {
         console.log(data);
         this.foundedProduit = data;
 
-
       }, error => {
-        console.log("error"+error);
-
-
+        console.log("error" + error);
       }
-    )
+    );
+
     return this.foundedProduit;
   }
+
+  public exportReport(format: String) {
+    this.http.get<String>(this.url + 'format/' + format).subscribe(
+      data => {
+        console.log(data);
+      }, error => {
+        console.log(error);
+      }
+    );
+
+
+  }
+
+
+
 
 
 }

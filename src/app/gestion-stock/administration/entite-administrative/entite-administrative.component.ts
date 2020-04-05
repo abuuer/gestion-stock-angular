@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {EntiteAdministrativeService} from "../../../controller/service/entite-administrative.service";
 import {EntiteAdministrative} from "../../../controller/model/administration/entite-administrative.model";
 
+
+
 @Component({
   selector: 'app-entite-administrative',
   templateUrl: './entite-administrative.component.html',

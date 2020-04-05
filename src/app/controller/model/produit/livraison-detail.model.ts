@@ -1,5 +1,5 @@
-import {Produit} from "./produit.model";
-import {Magasin} from "./magasin.model";
+import {Produit} from "../magasin/produit.model";
+import {Magasin} from "../magasin/magasin.model";
 import {Livraison} from "./livraison.model";
 
 export class LivraisonDetail {

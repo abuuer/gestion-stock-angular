@@ -28,6 +28,8 @@ import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material/dia
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LivraisonDetailListeComponent } from './gestion-stock/produit/livraison/livraison-liste/livraison-detail-liste/livraison-detail-liste.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { ProduitDialogComponent } from './gestion-stock/magasin/produit/produit-dialog/produit-dialog.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     LivraisonCreateComponent,
     LivraisonListeComponent,
     LivraisonNaveComponent,
-    LivraisonDetailListeComponent
+    LivraisonDetailListeComponent,
+    ProduitDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     HttpClientModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    Ng2SearchPipeModule
 
 
   ],

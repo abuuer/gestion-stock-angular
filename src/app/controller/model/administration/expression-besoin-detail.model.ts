@@ -1,5 +1,6 @@
-import {Produit} from "../magasin/produit.model";
+
 import {ExpressionBesoin} from "./expression-besoin.model";
+import {Produit} from "../magasin/produit.model";
 
 export class ExpressionBesoinDetail {
   public reference : String ;

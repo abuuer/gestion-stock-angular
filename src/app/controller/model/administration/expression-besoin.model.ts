@@ -1,5 +1,4 @@
 import { ExpressionBesoinDetail } from './expression-besoin-detail.model';
-import {Produit} from "../magasin/produit.model";
 import {Personnel} from "./personnel.model";
 import {EntiteAdministrative} from "./entite-administrative.model";
 

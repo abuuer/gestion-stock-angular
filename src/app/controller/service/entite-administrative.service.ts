@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {EntiteAdministrative} from "../model/administration/entite-administrative.model";
-import {Magasin} from "../model/magasin/magasin.model";
+
 
 
 @Injectable({

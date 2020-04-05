@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Magasin} from "../model/magasin/magasin.model";
+
 import {HttpClient} from "@angular/common/http";
 import {EntiteAdministrativeService} from "./entite-administrative.service";
+import {Magasin} from "../model/magasin/magasin.model";
 import {Stock} from "../model/magasin/stock.model";
 
 

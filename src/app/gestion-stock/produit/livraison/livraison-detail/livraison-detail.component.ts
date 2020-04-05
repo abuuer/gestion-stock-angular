@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Produit} from "../../../../controller/model/produit.model";
+import {Produit} from "../../../../controller/model/magasin/produit.model";
 import {LivraisonService} from "../../../../controller/service/livraison.service";
 import {ProduitService} from "../../../../controller/service/produit.service";
-import {NgForm} from "@angular/forms";
-import {LivraisonDetail} from "../../../../controller/model/livraison-detail.model";
+
+import {LivraisonDetail} from "../../../../controller/model/produit/livraison-detail.model";
 import {LivraisonDetailService} from "../../../../controller/service/livraison-detail.service";
-import {ExpressionBesion} from "../../../../controller/model/expression-besion.model";
+
 
 @Component({
   selector: 'app-livraison-detail',

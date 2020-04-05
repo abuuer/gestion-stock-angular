@@ -1,6 +1,7 @@
-import {Personnel} from '../administration/personnel.model';
-import {Stock} from './stock.model';
-import {EntiteAdministrative} from '../administration/entite-administrative.model';
+import {Personnel} from "../administration/personnel.model";
+import {Stock} from "./stock.model";
+import {EntiteAdministrative} from "../administration/entite-administrative.model";
+
 
 export class Magasin {
   public reference: string ;

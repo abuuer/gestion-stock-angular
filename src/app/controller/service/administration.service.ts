@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { EntiteAdministrative } from '../model/administration/entite-administrative.model';
-import { ExpressionBesoin} from '../model/administration/expression-besoin.model';
-import { Personnel } from '../model/administration/personnel.model';
-import {ExpressionBesoinDetail} from '../model/administration/expression-besoin-detail.model';
+
 import {HttpClient} from "@angular/common/http";
-import {Produit} from "../model/magasin/produit.model";
+
 import {TestObject} from "protractor/built/driverProviders";
+import {EntiteAdministrative} from "../model/administration/entite-administrative.model";
+import {ExpressionBesoinDetail} from "../model/administration/expression-besoin-detail.model";
+import {Personnel} from "../model/administration/personnel.model";
+import {ExpressionBesoin} from "../model/administration/expression-besoin.model";
+import {Produit} from "../model/magasin/produit.model";
 
 @Injectable({
   providedIn: 'root'

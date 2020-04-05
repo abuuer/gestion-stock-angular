@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Familleproduit} from '../model/produit/familleproduit.model';
-import {Fournisseur} from '../model/produit/fournisseur.model';
-import {Produit} from '../model/magasin/produit.model';
+import {Familleproduit} from "../model/produit/familleproduit.model";
+import {Produit} from "../model/magasin/produit.model";
 
 @Injectable({
   providedIn: 'root'

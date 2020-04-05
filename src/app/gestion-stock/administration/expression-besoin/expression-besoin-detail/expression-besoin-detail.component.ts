@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AdministrationService} from "../../../../controller/service/administration.service";
-import {EntiteAdministrative} from "../../../../controller/model/administration/entite-administrative.model";
-import {ExpressionBesoin} from "../../../../controller/model/administration/expression-besoin.model";
-import {Personnel} from "../../../../controller/model/administration/personnel.model";
 import {ExpressionBesoinDetail} from "../../../../controller/model/administration/expression-besoin-detail.model";
+import {EntiteAdministrative} from "../../../../controller/model/administration/entite-administrative.model";
+import {Personnel} from "../../../../controller/model/administration/personnel.model";
+import {ExpressionBesoin} from "../../../../controller/model/administration/expression-besoin.model";
 import {Produit} from "../../../../controller/model/magasin/produit.model";
 
 @Component({

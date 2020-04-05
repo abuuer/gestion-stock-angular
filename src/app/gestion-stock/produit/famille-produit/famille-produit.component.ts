@@ -27,6 +27,18 @@ export class FamilleProduitComponent implements OnInit {
     return this.familleProduitService.produit;
   }
 
+  get produitsByLibelle(): Produit[] {
+    return this.familleProduitService.produitsByLibelle;
+  }
+
+  get produitByLibelle(): Produit {
+    return this.familleProduitService.produitByLibelle;
+  }
+
+  public findByProduitLibelle(libelle: string): Array<Produit> {
+    return this.familleProduitService.findByProduitLibelle(libelle);
+  }
+
   public addProduit() {
     this.familleProduitService.addProduit();
   }
